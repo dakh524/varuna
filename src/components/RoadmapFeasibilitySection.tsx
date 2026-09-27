@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Milestone, Sparkles, Cpu, Layers, Cable, ShieldCheck, Play, Eye, X, ExternalLink } from 'lucide-react';
+import { Milestone, Sparkles, Cpu, Layers, Cable, ShieldCheck, Play, Eye, X, ExternalLink, Radio } from 'lucide-react';
 
 export const RoadmapFeasibilitySection: React.FC = () => {
   const [selectedImg, setSelectedImg] = useState<{ src: string; title: string } | null>(null);
@@ -254,10 +254,17 @@ export const RoadmapFeasibilitySection: React.FC = () => {
 
       {/* 🎥 PROTOTYPE DEMO VIDEOS GALLERY 🎥 */}
       <div className="mb-16 pt-10 border-t border-slate-200">
-        <h3 className="text-xl font-extrabold text-slate-900 mb-6 flex items-center gap-2">
-          <Play className="w-5 h-5 text-emerald-600" />
-          <span>Prototype Live Demo & Underwater Videos</span>
-        </h3>
+        <div className="flex flex-wrap items-center justify-between mb-6 gap-3">
+          <h3 className="text-xl font-extrabold text-slate-900 flex items-center gap-2">
+            <Play className="w-5 h-5 text-emerald-600" />
+            <span>Prototype Live Demo & Underwater Videos</span>
+          </h3>
+
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-mono font-bold shadow-xs">
+            <Radio className="w-3.5 h-3.5 text-amber-600 animate-pulse" />
+            <span>HD Media: Loading speed depends on your network connection</span>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {prototypeVideos.map((item, idx) => (
             <div key={idx} className="p-4 rounded-3xl bg-white border border-slate-200 shadow-xl flex flex-col justify-between hover:border-emerald-400 transition-all">

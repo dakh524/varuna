@@ -153,8 +153,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
                   </span>
                 </div>
 
-                {/* HTML5 Video Player */}
-                <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
+                {/* HTML5 Video Player with Network Speed Notification */}
+                <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden group">
                   <video
                     key={currentSlide.videoSrc}
                     src={currentSlide.videoSrc}
@@ -165,14 +165,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
                     controls
                     className="w-full h-full object-cover shadow-inner"
                   />
+                  
+                  {/* Floating Network Speed Notice Overlay Badge */}
+                  <div className="absolute top-3 left-3 z-20 bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-400/40 text-amber-300 font-mono text-[10px] font-bold flex items-center gap-1.5 shadow-lg pointer-events-none">
+                    <Radio className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+                    <span>HD STREAMING • GOOD NETWORK RECOMMENDED FOR INSTANT PLAYBACK</span>
+                  </div>
                 </div>
 
-                {/* Explicit Caption Requested by User */}
-                <div className="p-3 bg-[#0b132b] border-t border-amber-400/30 text-center">
-                  <p className="text-xs font-bold text-amber-300 tracking-wide font-sans">
+                {/* Explicit Caption & Network Notice */}
+                <div className="p-3 bg-[#0b132b] border-t border-amber-400/30 text-center space-y-1">
+                  <p className="text-xs font-extrabold text-amber-300 tracking-wide font-sans">
                     {currentSlide.videoCaption}
                   </p>
-                  <p className="text-[10px] text-slate-300 font-medium">
+                  <p className="text-[10px] text-emerald-400 font-mono font-bold flex items-center justify-center gap-1">
+                    <Sparkles className="w-3 h-3 text-emerald-400" />
+                    <span>Video loading time depends on network connection speed</span>
+                  </p>
+                  <p className="text-[9px] text-slate-400 font-medium">
                     VARUNA 06 • Team LORENZINI • MoES PS 26064
                   </p>
                 </div>
