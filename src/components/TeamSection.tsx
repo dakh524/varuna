@@ -22,7 +22,7 @@ export const TeamSection: React.FC = () => {
     {
       name: 'Shakthi Akshata G',
       role: 'Software Lead & Data Processing',
-      degree: 'M.Tech CDSE',
+      degree: 'M.Tech CSE',
       badge: 'SOFTWARE LEAD',
       honor: '🏆 SIH FINALIST 2025',
       image: '/assets/SHAKTHI%20AKSHATA%20G%20-%20INTEGRATION.jpeg',
