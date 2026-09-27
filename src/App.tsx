@@ -28,8 +28,10 @@ import { FullMissionDemoModal } from './components/modals/FullMissionDemoModal';
 import { JudgeModeModal } from './components/modals/JudgeModeModal';
 import { PublicReportModal } from './components/modals/PublicReportModal';
 import { PublicInquiryModal } from './components/modals/PublicInquiryModal';
+import { ResearchDisclaimerModal } from './components/modals/ResearchDisclaimerModal';
 
 export const App: React.FC = () => {
+  const [isDisclaimerModalOpen, setIsDisclaimerModalOpen] = useState<boolean>(true);
   const [isMissionModalOpen, setIsMissionModalOpen] = useState<boolean>(false);
   const [isJudgeModalOpen, setIsJudgeModalOpen] = useState<boolean>(false);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
@@ -68,6 +70,7 @@ export const App: React.FC = () => {
         onOpenMission={() => setIsMissionModalOpen(true)}
         onOpenJudgeMode={() => setIsJudgeModalOpen(true)}
         onOpenReport={() => setIsReportModalOpen(true)}
+        onOpenDisclaimer={() => setIsDisclaimerModalOpen(true)}
         isHighContrast={isHighContrast}
         onHighContrastToggle={() => setIsHighContrast(!isHighContrast)}
       />
@@ -170,6 +173,11 @@ export const App: React.FC = () => {
       <PublicInquiryModal
         isOpen={isInquiryModalOpen}
         onClose={() => setIsInquiryModalOpen(false)}
+      />
+
+      <ResearchDisclaimerModal
+        isOpen={isDisclaimerModalOpen}
+        onClose={() => setIsDisclaimerModalOpen(false)}
       />
     </div>
   );

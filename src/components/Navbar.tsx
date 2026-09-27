@@ -5,6 +5,7 @@ interface NavbarProps {
   onOpenMission: () => void;
   onOpenJudgeMode: () => void;
   onOpenReport: () => void;
+  onOpenDisclaimer?: () => void;
   isHighContrast?: boolean;
   onHighContrastToggle?: () => void;
 }
@@ -13,6 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onOpenMission,
   onOpenJudgeMode,
   onOpenReport,
+  onOpenDisclaimer,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
