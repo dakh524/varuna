@@ -1,0 +1,7 @@
+Rows: 5
+Features: 34
+Classes: ['Mn nodule', 'Mn crust']
+Training accuracy (NOT validation): 1.000
+Model: Random Forest, 500 trees, balanced classes.
+Excluded metadata/leakage columns: Event, ID, Minerals, Samp type, Core, Size [cm].
+WARNING: Only 5 samples are present in the uploaded file; this is not enough for reliable generalization or test-set validation.

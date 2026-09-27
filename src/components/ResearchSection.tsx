@@ -78,7 +78,7 @@ export const ResearchSection: React.FC = () => {
       </div>
 
       {/* 5 IEEE Research Papers Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {ieeePapers.map((paper, idx) => (
           <div
             key={idx}
@@ -127,6 +127,130 @@ export const ResearchSection: React.FC = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* 📊 DATASETS USED FOR PROTOTYPE DEVELOPMENT IN VERSION 1.0 📊 */}
+      <div className="bg-slate-900 text-white rounded-3xl p-6 md:p-8 border-2 border-amber-400/50 shadow-2xl">
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-6 border-b border-slate-800 pb-4">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/40 text-xs font-mono font-extrabold mb-2 uppercase">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>USED FOR PROTOTYPE DEVELOPMENT IN VERSION 1.0</span>
+            </div>
+            <h3 className="text-2xl font-black text-white tracking-tight">
+              Oceanographic Datasets & ML Models (Version 1.0)
+            </h3>
+            <p className="text-xs md:text-sm text-slate-300 leading-relaxed font-medium mt-1">
+              Glasby (1973) Manganese Nodule Geochemical Dataset & Random Forest Model used during initial Version 1.0 prototype training and metal prospectivity score calibration.
+            </p>
+          </div>
+
+          <span className="px-3 py-1 rounded-xl bg-blue-600 text-white text-xs font-mono font-bold uppercase tracking-wider">
+            VERSION 1.0 DATASET
+          </span>
+        </div>
+
+        {/* Dataset Files Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          
+          {/* File 1: Trained CSV Dataset */}
+          <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between hover:border-amber-400/60 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="px-2 py-0.5 rounded bg-emerald-950 text-emerald-300 border border-emerald-500/40 text-[9px] font-mono font-bold uppercase">
+                  CSV DATASET
+                </span>
+                <FileText className="w-4 h-4 text-emerald-400" />
+              </div>
+              <h4 className="text-sm font-bold text-white mb-1">Glasby 1973 Trained Dataset</h4>
+              <p className="text-[11px] text-slate-400 leading-relaxed font-medium mb-3">
+                Geochemical mineral concentration CSV used for initial Random Forest model training.
+              </p>
+            </div>
+            <a
+              href="/assets/dataset/Glasby_1973_TRAINED_DATASET.csv"
+              download
+              className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 pt-2 border-t border-slate-800"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download CSV Dataset</span>
+            </a>
+          </div>
+
+          {/* File 2: Random Forest Model */}
+          <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between hover:border-amber-400/60 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="px-2 py-0.5 rounded bg-purple-950 text-purple-300 border border-purple-500/40 text-[9px] font-mono font-bold uppercase">
+                  ML MODEL (.JOBLIB)
+                </span>
+                <Award className="w-4 h-4 text-purple-400" />
+              </div>
+              <h4 className="text-sm font-bold text-white mb-1">Random Forest Model</h4>
+              <p className="text-[11px] text-slate-400 leading-relaxed font-medium mb-3">
+                Trained scikit-learn model file (327 KB) used for V1.0 anomaly prospectivity scoring.
+              </p>
+            </div>
+            <a
+              href="/assets/dataset/Glasby_1973_RandomForest_model.joblib"
+              download
+              className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 pt-2 border-t border-slate-800"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download Model File</span>
+            </a>
+          </div>
+
+          {/* File 3: Feature Importance */}
+          <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between hover:border-amber-400/60 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="px-2 py-0.5 rounded bg-blue-950 text-blue-300 border border-blue-500/40 text-[9px] font-mono font-bold uppercase">
+                  FEATURE WEIGHTS
+                </span>
+                <Sparkles className="w-4 h-4 text-blue-400" />
+              </div>
+              <h4 className="text-sm font-bold text-white mb-1">Feature Importance CSV</h4>
+              <p className="text-[11px] text-slate-400 leading-relaxed font-medium mb-3">
+                Relative feature weight analysis for Mn, Fe, Ni, Cu, Co concentration vectors.
+              </p>
+            </div>
+            <a
+              href="/assets/dataset/Glasby_1973_feature_importance.csv"
+              download
+              className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 pt-2 border-t border-slate-800"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download Feature CSV</span>
+            </a>
+          </div>
+
+          {/* File 4: Training Report */}
+          <div className="p-4 rounded-2xl bg-slate-950 border border-slate-800 flex flex-col justify-between hover:border-amber-400/60 transition-all">
+            <div>
+              <div className="flex items-center justify-between mb-2">
+                <span className="px-2 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-500/40 text-[9px] font-mono font-bold uppercase">
+                  TRAINING REPORT
+                </span>
+                <BookOpen className="w-4 h-4 text-amber-400" />
+              </div>
+              <h4 className="text-sm font-bold text-white mb-1">Training Validation Report</h4>
+              <p className="text-[11px] text-slate-400 leading-relaxed font-medium mb-3">
+                Performance accuracy report, cross-validation metrics, and precision summary.
+              </p>
+            </div>
+            <a
+              href="/assets/dataset/Glasby_1973_training_report-1.txt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold text-amber-400 hover:text-amber-300 flex items-center gap-1.5 pt-2 border-t border-slate-800"
+            >
+              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Read Model Report</span>
+            </a>
+          </div>
+
+        </div>
       </div>
 
     </section>
