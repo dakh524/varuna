@@ -18,8 +18,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
       subtitle: 'A modular tethered ROV for preliminary seafloor anomaly detection, adaptive investigation and geo-referenced mapping.',
       desc: '25 m shallow-water field-tested prototype featuring 6+ multi-modal sensing payload, ESP32 real-time control, and adaptive 4-point rescan verification.',
       badge: 'V2 CURRENT PROTOTYPE • 25m DEPTH RATED',
-      videoSrc: '/assets/sixnode_explaining_concept.mp4',
-      videoCaption: 'This explains our current prototype and six node concept'
+      videoSrc: '/assets/varuna06_hero_demo.mp4',
+      videoCaption: 'Current Field-Tested VARUNA 06 Live Prototype Demo'
     },
     {
       version: 'V1 PROTOTYPE (BENCHTOP)',

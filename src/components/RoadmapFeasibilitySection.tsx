@@ -44,6 +44,11 @@ export const RoadmapFeasibilitySection: React.FC = () => {
 
   const prototypeVideos = [
     {
+      title: 'Current Prototype & 6-Node Concept Explanation',
+      video: '/assets/sixnode_explaining_concept.mp4',
+      badge: 'CONCEPT EXPLANATION'
+    },
+    {
       title: 'V2.0 Current Prototype Live Demo',
       video: '/assets/CURRENT%20PROTOTYPE%20V2.0%20LIVE%20DEMO.mp4',
       badge: 'V2.0 LIVE DEMO'
@@ -54,7 +59,7 @@ export const RoadmapFeasibilitySection: React.FC = () => {
       badge: 'V1.0 TEST DEMO'
     },
     {
-      title: 'VARUNA 06 Emergency System',
+      title: 'VARUNA 06 Emergency System & Underwater Testing',
       video: '/assets/WORKING%20VIDEO%20OF%20PROTO%20UNDERWATER.mp4',
       badge: 'EMERGENCY SYSTEM'
     }
@@ -253,7 +258,7 @@ export const RoadmapFeasibilitySection: React.FC = () => {
           <Play className="w-5 h-5 text-emerald-600" />
           <span>Prototype Live Demo & Underwater Videos</span>
         </h3>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {prototypeVideos.map((item, idx) => (
             <div key={idx} className="p-4 rounded-3xl bg-white border border-slate-200 shadow-xl flex flex-col justify-between hover:border-emerald-400 transition-all">
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-3 border border-slate-900 bg-black">
