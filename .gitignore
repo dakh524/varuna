@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Scratch & Temporary
+pdf_text.txt
+VARUNA06_ALLFILES/
+*.mp4
+!public/assets/*.mp4

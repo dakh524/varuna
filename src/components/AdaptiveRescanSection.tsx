@@ -1,9 +1,8 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { RefreshCw, CheckCircle2, XCircle, ArrowRight, ShieldCheck, Compass, Sliders, AlertOctagon } from 'lucide-react';
 
 export const AdaptiveRescanSection: React.FC = () => {
   const [selectedScenario, setSelectedScenario] = useState<'true_deposit' | 'false_positive'>('true_deposit');
-  const [activeStep, setActiveStep] = useState<number>(4);
 
   const scenarioData = {
     true_deposit: {
@@ -43,14 +42,14 @@ export const AdaptiveRescanSection: React.FC = () => {
   return (
     <section id="adaptive-rescan" className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative">
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono mb-4">
-          <RefreshCw className="w-3.5 h-3.5 text-cyan-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-mono mb-4 font-bold shadow-sm">
+          <RefreshCw className="w-3.5 h-3.5 text-blue-600" />
           <span>SECTION 10 // CLOSED-LOOP ADAPTIVE RESCANNING</span>
         </div>
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
           Adaptive Rescan: Eliminating False Positives
         </h2>
-        <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+        <p className="text-slate-700 text-base md:text-lg leading-relaxed font-medium">
           VARUNA06 does not blindly trust a single-pass spike. When an anomaly is detected, the platform autonomously commands a 4-point cross-pattern inspection to evaluate spatial coherence before logging.
         </p>
 
@@ -60,8 +59,8 @@ export const AdaptiveRescanSection: React.FC = () => {
             onClick={() => setSelectedScenario('true_deposit')}
             className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
               selectedScenario === 'true_deposit'
-                ? 'bg-emerald-500/20 border-emerald-400 text-emerald-300 shadow-lg shadow-emerald-500/10'
-                : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
+                ? 'bg-emerald-600 border-emerald-700 text-white shadow-md'
+                : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
             }`}
           >
             DEMO A: TRUE GEOLOGICAL DEPOSIT (ZONE C-03)
@@ -70,8 +69,8 @@ export const AdaptiveRescanSection: React.FC = () => {
             onClick={() => setSelectedScenario('false_positive')}
             className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
               selectedScenario === 'false_positive'
-                ? 'bg-amber-500/20 border-amber-400 text-amber-300 shadow-lg shadow-amber-500/10'
-                : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
+                ? 'bg-amber-600 border-amber-700 text-white shadow-md'
+                : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
             }`}
           >
             DEMO B: FALSE POSITIVE REJECTION (ZONE D-02)
@@ -80,85 +79,82 @@ export const AdaptiveRescanSection: React.FC = () => {
       </div>
 
       {/* Main Visualizer Panel */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#06142a]/90 border border-cyan-500/25 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-md">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-xl">
         {/* Left: Star Pattern Cross Visualizer */}
-        <div className="lg:col-span-6 flex flex-col items-center justify-center p-6 rounded-2xl bg-[#030a18] border border-cyan-500/15 relative">
-          <div className="text-xs font-mono text-cyan-400 uppercase tracking-widest mb-6 flex items-center gap-2">
-            <Compass className="w-4 h-4 text-cyan-400" />
+        <div className="lg:col-span-6 flex flex-col items-center justify-center p-6 rounded-2xl bg-slate-50 border border-slate-200 relative">
+          <div className="text-xs font-mono text-blue-900 font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
+            <Compass className="w-4 h-4 text-blue-600" />
             <span>4-POINT CROSS-PATTERN GEOMETRY</span>
           </div>
 
           {/* Compass Star Diagram */}
           <div className="relative w-64 h-64 flex items-center justify-center">
-            {/* Grid circles */}
-            <div className="absolute inset-0 rounded-full border border-cyan-500/20" />
-            <div className="absolute inset-8 rounded-full border border-cyan-500/30 border-dashed" />
-            <div className="absolute inset-16 rounded-full border border-cyan-500/40" />
+            <div className="absolute inset-0 rounded-full border border-blue-200" />
+            <div className="absolute inset-8 rounded-full border border-blue-300 border-dashed" />
+            <div className="absolute inset-16 rounded-full border border-blue-400" />
 
-            {/* Cross hair lines */}
-            <div className="absolute w-full h-[1px] bg-cyan-500/25" />
-            <div className="absolute h-full w-[1px] bg-cyan-500/25" />
+            <div className="absolute w-full h-[1px] bg-blue-300" />
+            <div className="absolute h-full w-[1px] bg-blue-300" />
 
-            {/* Epicenter (Initial Detection) */}
-            <div className="relative z-10 flex flex-col items-center justify-center w-20 h-20 rounded-full bg-slate-900 border-2 border-cyan-400 shadow-xl shadow-cyan-500/30 text-center">
-              <span className="text-[10px] font-mono text-slate-400">INITIAL</span>
-              <span className="text-sm font-bold font-mono text-cyan-300">{current.initialScore}/100</span>
+            {/* Epicenter */}
+            <div className="relative z-10 flex flex-col items-center justify-center w-20 h-20 rounded-full bg-white border-2 border-blue-600 shadow-md text-center">
+              <span className="text-[10px] font-mono text-slate-500 font-bold">INITIAL</span>
+              <span className="text-sm font-bold font-mono text-blue-900">{current.initialScore}/100</span>
             </div>
 
             {/* Position 1 (North) */}
             <div className="absolute top-2 left-1/2 -translate-x-1/2 flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center text-xs font-mono font-bold text-cyan-300">
+              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-mono font-bold shadow-sm">
                 P1
               </div>
-              <span className="text-[9px] font-mono text-slate-400 mt-1">+0.8m N</span>
+              <span className="text-[9px] font-mono text-slate-700 font-bold mt-1">+0.8m N</span>
             </div>
 
             {/* Position 2 (East) */}
             <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center text-xs font-mono font-bold text-cyan-300">
+              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-mono font-bold shadow-sm">
                 P2
               </div>
-              <span className="text-[9px] font-mono text-slate-400 mt-1">+0.8m E</span>
+              <span className="text-[9px] font-mono text-slate-700 font-bold mt-1">+0.8m E</span>
             </div>
 
             {/* Position 3 (South) */}
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center text-xs font-mono font-bold text-cyan-300">
+              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-mono font-bold shadow-sm">
                 P3
               </div>
-              <span className="text-[9px] font-mono text-slate-400 mt-1">-0.8m S</span>
+              <span className="text-[9px] font-mono text-slate-700 font-bold mt-1">-0.8m S</span>
             </div>
 
             {/* Position 4 (West) */}
             <div className="absolute left-2 top-1/2 -translate-y-1/2 flex flex-col items-center">
-              <div className="w-8 h-8 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center text-xs font-mono font-bold text-cyan-300">
+              <div className="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-mono font-bold shadow-sm">
                 P4
               </div>
-              <span className="text-[9px] font-mono text-slate-400 mt-1">-0.8m W</span>
+              <span className="text-[9px] font-mono text-slate-700 font-bold mt-1">-0.8m W</span>
             </div>
           </div>
 
-          <div className="text-[11px] font-mono text-slate-400 mt-6 text-center">
+          <div className="text-[11px] font-mono text-slate-600 font-medium mt-6 text-center">
             Standard offset: 0.8 meters radius with acoustic standoff lock at 1.25m
           </div>
         </div>
 
-        {/* Right: Rescan Telemetry Breakdown & Final Confidence */}
+        {/* Right: Rescan Telemetry Breakdown */}
         <div className="lg:col-span-6 flex flex-col gap-5">
-          <div className="pb-3 border-b border-cyan-500/20">
-            <span className="text-xs font-mono text-slate-400">TARGET UNDER EVALUATION:</span>
-            <h3 className="text-xl font-bold text-white mt-0.5">{current.zone}</h3>
+          <div className="pb-3 border-b border-slate-200">
+            <span className="text-xs font-mono text-slate-500 font-bold">TARGET UNDER EVALUATION:</span>
+            <h3 className="text-xl font-bold text-slate-900 mt-0.5">{current.zone}</h3>
           </div>
 
-          {/* 4 Discrete Observations */}
           <div className="grid grid-cols-2 gap-2.5">
             {current.positions.map((pos, idx) => (
-              <div key={idx} className="p-3 rounded-xl bg-[#091e3e] border border-cyan-900/40 text-xs">
-                <div className="flex items-center justify-between font-mono font-bold text-cyan-300 mb-1">
+              <div key={idx} className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+                <div className="flex items-center justify-between font-mono font-bold text-blue-900 mb-1">
                   <span>{pos.id}</span>
-                  <span className="text-white">{pos.score}/100</span>
+                  <span className="text-slate-900">{pos.score}/100</span>
                 </div>
-                <div className="text-[11px] text-slate-400 space-y-0.5 font-mono">
+                <div className="text-[11px] text-slate-700 space-y-0.5 font-mono font-medium">
                   <div>EM: {pos.emAmp} ({pos.phase})</div>
                   <div>Mag: {pos.magDelta}</div>
                 </div>
@@ -166,20 +162,19 @@ export const AdaptiveRescanSection: React.FC = () => {
             ))}
           </div>
 
-          {/* Quantitative Score Output Cards */}
-          <div className="grid grid-cols-3 gap-3 p-4 rounded-xl bg-[#081832] border border-cyan-500/20">
+          <div className="grid grid-cols-3 gap-3 p-4 rounded-xl bg-slate-50 border border-slate-200">
             <div>
-              <span className="text-[10px] font-mono text-slate-400 block uppercase">Initial Score</span>
-              <span className="text-2xl font-black font-mono text-white mt-1 block">
+              <span className="text-[10px] font-mono text-slate-500 block uppercase font-bold">Initial Score</span>
+              <span className="text-2xl font-black font-mono text-slate-900 mt-1 block">
                 {current.initialScore}
               </span>
               <span className="text-[10px] text-slate-500 font-mono">Single pass</span>
             </div>
 
             <div>
-              <span className="text-[10px] font-mono text-slate-400 block uppercase">Consistency</span>
+              <span className="text-[10px] font-mono text-slate-500 block uppercase font-bold">Consistency</span>
               <span className={`text-2xl font-black font-mono mt-1 block ${
-                current.consistency > 75 ? 'text-emerald-400' : 'text-rose-400'
+                current.consistency > 75 ? 'text-emerald-700' : 'text-rose-700'
               }`}>
                 {current.consistency}%
               </span>
@@ -187,9 +182,9 @@ export const AdaptiveRescanSection: React.FC = () => {
             </div>
 
             <div>
-              <span className="text-[10px] font-mono text-slate-400 block uppercase">Final Confidence</span>
+              <span className="text-[10px] font-mono text-slate-500 block uppercase font-bold">Final Confidence</span>
               <span className={`text-2xl font-black font-mono mt-1 block ${
-                current.finalConfidence > 70 ? 'text-cyan-400' : 'text-amber-400'
+                current.finalConfidence > 70 ? 'text-blue-900' : 'text-amber-700'
               }`}>
                 {current.finalConfidence}/100
               </span>
@@ -197,20 +192,19 @@ export const AdaptiveRescanSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Final Verdict Banner */}
           <div className={`p-4 rounded-xl border flex items-start gap-3 ${
             current.verdictType === 'success'
-              ? 'bg-emerald-950/40 border-emerald-500/40 text-emerald-200'
-              : 'bg-rose-950/40 border-rose-500/40 text-rose-200'
+              ? 'bg-emerald-50 border-emerald-300 text-emerald-900'
+              : 'bg-rose-50 border-rose-300 text-rose-900'
           }`}>
             {current.verdictType === 'success' ? (
-              <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
             ) : (
-              <XCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+              <XCircle className="w-5 h-5 text-rose-700 shrink-0 mt-0.5" />
             )}
             <div>
               <h4 className="text-sm font-bold font-mono tracking-wide uppercase">{current.verdict}</h4>
-              <p className="text-xs text-slate-300 mt-1 leading-relaxed">{current.reasoning}</p>
+              <p className="text-xs text-slate-800 mt-1 leading-relaxed font-medium">{current.reasoning}</p>
             </div>
           </div>
         </div>

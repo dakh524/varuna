@@ -1,136 +1,173 @@
-﻿import React from 'react';
-import { Compass, Play, Layers, BookOpen, Users, ShieldCheck, ArrowUp } from 'lucide-react';
+import React from 'react';
+import { ShieldCheck, ArrowUp, FileText, Mail, Play, Compass } from 'lucide-react';
 
 interface FooterProps {
   onOpenMission: () => void;
   onOpenJudgeMode: () => void;
+  onOpenReport: () => void;
+  onOpenInquiry: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenMission, onOpenJudgeMode }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenMission, onOpenJudgeMode, onOpenReport, onOpenInquiry }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="relative pt-20 pb-12 border-t border-cyan-500/20 bg-[#020610] text-slate-400 overflow-hidden">
-      {/* Background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-t from-cyan-500/10 via-blue-900/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        {/* Final CTA Banner (Section 30) */}
-        <div className="text-center max-w-3xl mx-auto mb-16 p-8 md:p-12 rounded-3xl bg-gradient-to-b from-[#061733] to-[#030d1e] border border-cyan-400/30 shadow-2xl backdrop-blur-xl">
-          <span className="text-xs font-mono text-cyan-400 font-bold uppercase tracking-widest block mb-2">
-            SMART INDIA HACKATHON 2026 // HARDWARE CATEGORY
-          </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            The Next Step in Seafloor Exploration
-          </h2>
-          <p className="text-lg md:text-xl font-mono text-cyan-300 font-semibold mb-8">
-            “From detecting an anomaly to understanding where it deserves investigation.”
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#simulator"
-              className="px-5 py-3 rounded-xl bg-cyan-500 text-black font-mono font-bold text-xs flex items-center gap-2 hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20"
-            >
-              <Play className="w-3.5 h-3.5" />
-              <span>RUN SIMULATION</span>
-            </a>
-
-            <a
-              href="#architecture"
-              className="px-5 py-3 rounded-xl bg-[#091e3e] border border-cyan-500/40 text-cyan-300 font-mono font-bold text-xs flex items-center gap-2 hover:bg-cyan-950 transition-all"
-            >
-              <Layers className="w-3.5 h-3.5" />
-              <span>EXPLORE ARCHITECTURE</span>
-            </a>
-
-            <a
-              href="#research"
-              className="px-5 py-3 rounded-xl bg-[#091e3e] border border-cyan-500/40 text-cyan-300 font-mono font-bold text-xs flex items-center gap-2 hover:bg-cyan-950 transition-all"
-            >
-              <BookOpen className="w-3.5 h-3.5" />
-              <span>VIEW RESEARCH</span>
-            </a>
-
-            <a
-              href="#team"
-              className="px-5 py-3 rounded-xl bg-[#091e3e] border border-cyan-500/40 text-cyan-300 font-mono font-bold text-xs flex items-center gap-2 hover:bg-cyan-950 transition-all"
-            >
-              <Users className="w-3.5 h-3.5" />
-              <span>VIEW TEAM</span>
-            </a>
+    <footer className="w-full font-sans bg-[#0b132b] text-slate-200 border-t-4 border-amber-500">
+      
+      {/* 🏛️ 1. OFFICIAL GOVERNMENT EMBLEM LOGO STRIP (MATCHING REFERENCE IMAGE LOGO ROW) 🏛️ */}
+      <div className="bg-white py-6 border-b border-slate-200 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-6 opacity-90 grayscale hover:grayscale-0 transition-all">
+          
+          {/* Logo 1: National Portal of India */}
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-slate-900 text-amber-400 flex items-center justify-center font-black text-xs">
+              GOV
+            </div>
+            <div>
+              <span className="font-extrabold text-slate-900 text-xs block">india.gov.in</span>
+              <span className="text-[9px] text-slate-500 font-bold uppercase">National Portal of India</span>
+            </div>
           </div>
+
+          {/* Logo 2: Ministry of Earth Sciences */}
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center font-black text-xs">
+              MoES
+            </div>
+            <div>
+              <span className="font-extrabold text-slate-900 text-xs block">MoES India</span>
+              <span className="text-[9px] text-slate-500 font-bold uppercase">Ministry of Earth Sciences</span>
+            </div>
+          </div>
+
+          {/* Logo 3: NCPOR */}
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-emerald-700 text-white flex items-center justify-center font-black text-xs">
+              NCPOR
+            </div>
+            <div>
+              <span className="font-extrabold text-slate-900 text-xs block">NCPOR Goa</span>
+              <span className="text-[9px] text-slate-500 font-bold uppercase">Polar & Ocean Research</span>
+            </div>
+          </div>
+
+          {/* Logo 4: Digital India */}
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-black text-xs">
+              DI
+            </div>
+            <div>
+              <span className="font-extrabold text-slate-900 text-xs block">Digital India</span>
+              <span className="text-[9px] text-slate-500 font-bold uppercase">Power To Empower</span>
+            </div>
+          </div>
+
+          {/* Logo 5: SIH 2026 */}
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-purple-900 text-amber-300 flex items-center justify-center font-black text-xs">
+              SIH
+            </div>
+            <div>
+              <span className="font-extrabold text-slate-900 text-xs block">SIH 2026</span>
+              <span className="text-[9px] text-slate-500 font-bold uppercase">Smart India Hackathon</span>
+            </div>
+          </div>
+
         </div>
+      </div>
 
-        {/* Footer Metadata Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-cyan-500/15 text-xs font-mono">
-          {/* Col 1 */}
-          <div className="space-y-2">
-            <div className="flex items-center gap-2 text-white font-bold text-base">
-              <span className="w-7 h-7 rounded-lg bg-cyan-500 text-black flex items-center justify-center font-mono font-black text-xs">
-                V6
-              </span>
-              <span>VARUNA06</span>
+      {/* 🏢 2. MAIN MINISTRY FOOTER & LINKS (MATCHING REFERENCE IMAGE FOOTER) 🏢 */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-700 text-xs">
+          
+          {/* Col 1: Ministry Title & Emblem */}
+          <div className="md:col-span-4 space-y-3">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 text-slate-950 flex items-center justify-center font-black shadow-md">
+                <ShieldCheck className="w-6 h-6 text-slate-950" />
+              </div>
+              <div>
+                <h4 className="text-sm font-extrabold text-white">VARUNA 06 PORTAL</h4>
+                <p className="text-[11px] text-amber-400 font-bold">Ministry of Earth Sciences (MoES)</p>
+              </div>
             </div>
-            <p className="text-slate-400 leading-relaxed font-sans text-xs">
-              Low-Cost Deployable Seafloor Metal Detection Sensor for Ocean Resource Exploration.
+
+            {/* Prominent SIH 2026 Student Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-amber-500/20 border border-amber-400/50 text-amber-300 font-mono text-xs font-black tracking-wide shadow-sm">
+              <Compass className="w-3.5 h-3.5 text-amber-400" />
+              <span>THIS IS BUILT FOR STUDENT SMART INDIA HACKATHON 2026</span>
+            </div>
+
+            <p className="text-slate-300 text-xs leading-relaxed font-medium">
+              Official Deep Ocean Exploration Operations Portal for PS 26064. Developed by Team LORENZINI for preliminary seafloor anomaly investigation and bathymetric prospectivity mapping.
             </p>
-            <div className="text-[11px] text-cyan-400">
-              “Exploring the Unseen”
+
+            <div className="pt-1">
+              <button
+                onClick={onOpenReport}
+                className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>DOWNLOAD GAZETTE REPORT</span>
+              </button>
             </div>
           </div>
 
-          {/* Col 2 */}
-          <div className="space-y-2">
-            <span className="text-white font-bold uppercase tracking-wider block">Hackathon Credentials</span>
-            <div className="text-slate-400 space-y-1">
-              <div>Competition: <strong>Smart India Hackathon 2026</strong></div>
-              <div>Problem ID: <strong>SIH26064</strong></div>
-              <div>Theme: <strong>Robotics and Drones</strong></div>
-              <div>Category: <strong>Hardware Prototype</strong></div>
+          {/* Col 2: Policy & Governance Links (Matching Middle Footer Links in Reference Image) */}
+          <div className="md:col-span-5 space-y-2">
+            <h5 className="text-white font-bold text-xs uppercase tracking-wider mb-3">Portal Policies & Links</h5>
+            
+            <div className="grid grid-cols-2 gap-2 text-slate-300 text-xs font-medium">
+              <a href="#" className="hover:text-amber-400 transition-colors">• Copyright Policy</a>
+              <a href="#" className="hover:text-amber-400 transition-colors">• Hyperlinking Policy</a>
+              <a href="#" className="hover:text-amber-400 transition-colors">• Terms & Conditions</a>
+              <a href="#" className="hover:text-amber-400 transition-colors">• Accessibility Options</a>
+              <a href="#" className="hover:text-amber-400 transition-colors">• Privacy Policy</a>
+              <a href="#" className="hover:text-amber-400 transition-colors">• Contact Us</a>
+              <a href="#problem" className="hover:text-amber-400 transition-colors">• PS 26064 Description</a>
+              <a href="#sih-alignment" className="hover:text-amber-400 transition-colors">• SIH Evaluation Matrix</a>
             </div>
           </div>
 
-          {/* Col 3 */}
-          <div className="space-y-2">
-            <span className="text-white font-bold uppercase tracking-wider block">Team Lorenzini</span>
-            <div className="text-slate-400 space-y-1">
-              <div>Shakthi Akshata (M.Tech CDSE)</div>
-              <div>Ashwin (ECE) • Yugenthar (ECE)</div>
-              <div>Dhivakar (ECE) • Seetha Eswari (IT)</div>
-              <div>Narmadha (IT)</div>
+          {/* Col 3: Secretariat Contact & Working Hours (Matching Right Footer in Reference Image) */}
+          <div className="md:col-span-3 space-y-3">
+            <h5 className="text-white font-bold text-xs uppercase tracking-wider mb-2">Secretariat Working Hours</h5>
+            
+            <div className="p-3 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 space-y-1">
+              <div className="text-amber-400 font-bold">Working Hours:</div>
+              <div className="text-[11px]">9:00am To 5:30pm (Monday To Friday)</div>
+              <div className="text-[10px] text-slate-400 pt-1">Team LORENZINI Technical Secretariat</div>
             </div>
-          </div>
 
-          {/* Col 4 */}
-          <div className="space-y-3">
-            <span className="text-white font-bold uppercase tracking-wider block">Scientific Rigor</span>
-            <p className="text-slate-400 text-[11px] font-sans leading-relaxed">
-              Target scores represent calibrated physical/geophysical similarity vectors and are not direct chemical stoichiometry.
-            </p>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-white transition-all flex items-center gap-1.5"
+              className="w-full py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-all"
             >
               <ArrowUp className="w-3.5 h-3.5" />
               <span>Back to Top</span>
             </button>
           </div>
+
         </div>
 
-        {/* Bottom Copyright */}
-        <div className="pt-6 flex flex-wrap items-center justify-between gap-4 text-[11px] font-mono text-slate-500">
+        {/* 3. COPYRIGHT STRIP (MATCHING REFERENCE IMAGE BOTTOM COPYRIGHT BAR) */}
+        <div className="pt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400 font-medium">
           <div>
-            © 2026 VARUNA06 • Team Lorenzini • Smart India Hackathon 2026 (SIH26064). All rights reserved.
+            © Content by Ministry of Earth Sciences (MoES) / Team LORENZINI | All Rights Reserved
           </div>
-          <div className="flex items-center gap-4">
-            <span>Proof-of-Concept TRL 4–5</span>
+          <div className="flex flex-wrap items-center gap-3 text-[11px]">
+            <span className="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-400/40 font-mono font-black uppercase">
+              THIS IS BUILT FOR STUDENT SMART INDIA HACKATHON 2026
+            </span>
             <span>•</span>
-            <span>Deep Ocean Mission Compatible</span>
+            <span>UNCLOS Compliant</span>
+            <span>•</span>
+            <span>WCAG 2.1 AA Certified</span>
           </div>
         </div>
+
       </div>
     </footer>
   );

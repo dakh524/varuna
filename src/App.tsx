@@ -1,6 +1,8 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
+import { GovernmentTopBar } from './components/GovernmentTopBar';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
+import { InsidePptSection } from './components/InsidePptSection';
 import { ProblemSection } from './components/ProblemSection';
 import { ComparisonSection } from './components/ComparisonSection';
 import { RobotViewerSection } from './components/RobotViewerSection';
@@ -16,6 +18,7 @@ import { LimitationsSection } from './components/LimitationsSection';
 import { RoadmapFeasibilitySection } from './components/RoadmapFeasibilitySection';
 import { ChallengesCostSection } from './components/ChallengesCostSection';
 import { BusinessSwotSection } from './components/BusinessSwotSection';
+import { SihAlignmentSection } from './components/SihAlignmentSection';
 import { WowFactorsSection } from './components/WowFactorsSection';
 import { SeafloorMapSection } from './components/SeafloorMapSection';
 import { TeamSection } from './components/TeamSection';
@@ -23,10 +26,17 @@ import { Footer } from './components/Footer';
 
 import { FullMissionDemoModal } from './components/modals/FullMissionDemoModal';
 import { JudgeModeModal } from './components/modals/JudgeModeModal';
+import { PublicReportModal } from './components/modals/PublicReportModal';
+import { PublicInquiryModal } from './components/modals/PublicInquiryModal';
 
 export const App: React.FC = () => {
   const [isMissionModalOpen, setIsMissionModalOpen] = useState<boolean>(false);
   const [isJudgeModalOpen, setIsJudgeModalOpen] = useState<boolean>(false);
+  const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+  const [isInquiryModalOpen, setIsInquiryModalOpen] = useState<boolean>(false);
+
+  const [textSize, setTextSize] = useState<'sm' | 'md' | 'lg'>('md');
+  const [isHighContrast, setIsHighContrast] = useState<boolean>(false);
 
   const handleOpenSimulation = () => {
     const simElement = document.getElementById('simulator');
@@ -35,21 +45,44 @@ export const App: React.FC = () => {
     }
   };
 
+  const getTextScaleClass = () => {
+    switch (textSize) {
+      case 'sm':
+        return 'text-xs';
+      case 'lg':
+        return 'text-lg';
+      default:
+        return 'text-base';
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-[#030814] text-slate-100 flex flex-col font-sans selection:bg-cyan-500 selection:text-black">
-      {/* Navigation Header */}
+    <div className={`min-h-screen flex flex-col font-sans selection:bg-amber-400 selection:text-black transition-colors ${
+      isHighContrast
+        ? 'bg-white text-black high-contrast-mode'
+        : 'bg-[#f8fafc] text-slate-900'
+    } ${getTextScaleClass()}`}>
+      
+      {/* Official Agency Navigation Header */}
       <Navbar
         onOpenMission={() => setIsMissionModalOpen(true)}
         onOpenJudgeMode={() => setIsJudgeModalOpen(true)}
+        onOpenReport={() => setIsReportModalOpen(true)}
+        isHighContrast={isHighContrast}
+        onHighContrastToggle={() => setIsHighContrast(!isHighContrast)}
       />
 
       {/* Main Content Sections */}
-      <main className="flex-1 w-full space-y-8">
+      <main className="flex-1 w-full space-y-12">
         {/* 03 Hero */}
         <HeroSection
           onOpenMission={() => setIsMissionModalOpen(true)}
           onOpenJudgeMode={() => setIsJudgeModalOpen(true)}
+          onOpenReport={() => setIsReportModalOpen(true)}
         />
+
+        {/* Official SIH PPT Detailed Presentation Section */}
+        <InsidePptSection />
 
         {/* 04 Problem */}
         <ProblemSection />
@@ -102,17 +135,22 @@ export const App: React.FC = () => {
         {/* 22, 23 & 24 Business Model, Sustainability & SWOT */}
         <BusinessSwotSection />
 
-        {/* 29 Team Lorenzini */}
+        {/* 24 SIH Evaluation Alignment & Differentiators Summary */}
+        <SihAlignmentSection />
+
+        {/* 29 Engineering & Research Secretariat */}
         <TeamSection />
       </main>
 
-      {/* 30 Final CTA & Footer */}
+      {/* 30 Final CTA & Official Government Footer */}
       <Footer
         onOpenMission={() => setIsMissionModalOpen(true)}
         onOpenJudgeMode={() => setIsJudgeModalOpen(true)}
+        onOpenReport={() => setIsReportModalOpen(true)}
+        onOpenInquiry={() => setIsInquiryModalOpen(true)}
       />
 
-      {/* Interactive Modals */}
+      {/* Interactive Government Portal Modals */}
       <FullMissionDemoModal
         isOpen={isMissionModalOpen}
         onClose={() => setIsMissionModalOpen(false)}
@@ -122,6 +160,16 @@ export const App: React.FC = () => {
         isOpen={isJudgeModalOpen}
         onClose={() => setIsJudgeModalOpen(false)}
         onOpenSimulation={handleOpenSimulation}
+      />
+
+      <PublicReportModal
+        isOpen={isReportModalOpen}
+        onClose={() => setIsReportModalOpen(false)}
+      />
+
+      <PublicInquiryModal
+        isOpen={isInquiryModalOpen}
+        onClose={() => setIsInquiryModalOpen(false)}
       />
     </div>
   );

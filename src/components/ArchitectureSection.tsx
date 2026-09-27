@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Layers, Cpu, Server, Cable, Activity, Database, GitCommit, CheckCircle } from 'lucide-react';
 
 export const ArchitectureSection: React.FC = () => {
@@ -29,14 +29,14 @@ export const ArchitectureSection: React.FC = () => {
   return (
     <section id="architecture" className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative">
       <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono mb-4">
-          <Layers className="w-3.5 h-3.5 text-cyan-400" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-mono mb-4 font-bold shadow-sm">
+          <Layers className="w-3.5 h-3.5 text-blue-600" />
           <span>SECTION 07 // SYSTEM & DATA PIPELINE ARCHITECTURE</span>
         </div>
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
+        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
           End-to-End Engineering Architecture
         </h2>
-        <p className="text-slate-300 text-base md:text-lg leading-relaxed">
+        <p className="text-slate-700 text-base md:text-lg leading-relaxed font-medium">
           From surface winch power delivery down to microvolt differential sensing and topside prospectivity mapping, every hardware module and software layer is purpose-built for low-cost marine geophysics.
         </p>
 
@@ -46,8 +46,8 @@ export const ArchitectureSection: React.FC = () => {
             onClick={() => setActiveTab('system')}
             className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
               activeTab === 'system'
-                ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-lg shadow-cyan-500/10'
-                : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
+                ? 'bg-blue-600 border-blue-700 text-white shadow-md'
+                : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
             }`}
           >
             SYSTEM PIPELINE
@@ -56,8 +56,8 @@ export const ArchitectureSection: React.FC = () => {
             onClick={() => setActiveTab('hardware')}
             className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
               activeTab === 'hardware'
-                ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-lg shadow-cyan-500/10'
-                : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
+                ? 'bg-blue-600 border-blue-700 text-white shadow-md'
+                : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
             }`}
           >
             HARDWARE SUBSYSTEMS
@@ -66,8 +66,8 @@ export const ArchitectureSection: React.FC = () => {
             onClick={() => setActiveTab('software')}
             className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
               activeTab === 'software'
-                ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-lg shadow-cyan-500/10'
-                : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-slate-200'
+                ? 'bg-blue-600 border-blue-700 text-white shadow-md'
+                : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
             }`}
           >
             SOFTWARE PROCESSING STACK
@@ -77,74 +77,74 @@ export const ArchitectureSection: React.FC = () => {
 
       {/* Tab 1: System Pipeline Flowchart */}
       {activeTab === 'system' && (
-        <div className="bg-[#06142a]/90 border border-cyan-500/25 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-md">
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-xl">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch">
             {/* Stage 1 */}
-            <div className="p-4 rounded-xl bg-[#081b38] border border-cyan-900/40 flex flex-col justify-between">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono text-cyan-400 font-bold block mb-1">01 TOPSIDE</span>
-                <h4 className="text-sm font-bold text-white mb-2">SURFACE VESSEL & WINCH</h4>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                <span className="text-[10px] font-mono text-blue-700 font-extrabold block mb-1">01 TOPSIDE</span>
+                <h4 className="text-sm font-bold text-slate-900 mb-2">SURFACE VESSEL & WINCH</h4>
+                <p className="text-xs text-slate-700 leading-relaxed font-sans font-medium">
                   Automated heave-compensating winch, 48V DC isolated power supply, and navigation GPS.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-cyan-500/15 text-[10px] font-mono text-slate-400">
+              <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] font-mono text-slate-600 font-bold">
                 Topside Mission Control
               </div>
             </div>
 
             {/* Stage 2 */}
-            <div className="p-4 rounded-xl bg-[#081b38] border border-cyan-900/40 flex flex-col justify-between">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono text-sky-400 font-bold block mb-1">02 CONDUIT</span>
-                <h4 className="text-sm font-bold text-white mb-2">POWER + DATA TETHER</h4>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                <span className="text-[10px] font-mono text-blue-700 font-extrabold block mb-1">02 CONDUIT</span>
+                <h4 className="text-sm font-bold text-slate-900 mb-2">POWER + DATA TETHER</h4>
+                <p className="text-xs text-slate-700 leading-relaxed font-sans font-medium">
                   Single neutral buoyancy umbilical carrying high-voltage DC and differential 10 Mbps telemetry.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-cyan-500/15 text-[10px] font-mono text-slate-400">
+              <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] font-mono text-slate-600 font-bold">
                 Bidirectional Subsea Link
               </div>
             </div>
 
             {/* Stage 3 */}
-            <div className="p-4 rounded-xl bg-cyan-950/60 border border-cyan-500/40 flex flex-col justify-between shadow-lg shadow-cyan-500/10">
+            <div className="p-4 rounded-xl bg-blue-50 border border-blue-300 flex flex-col justify-between shadow-md">
               <div>
-                <span className="text-[10px] font-mono text-cyan-300 font-bold block mb-1">03 SUBSEA PLATFORM</span>
-                <h4 className="text-sm font-bold text-white mb-2">VARUNA06 SENSOR SUITE</h4>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                <span className="text-[10px] font-mono text-blue-900 font-extrabold block mb-1">03 SUBSEA PLATFORM</span>
+                <h4 className="text-sm font-bold text-slate-900 mb-2">VARUNA06 SENSOR SUITE</h4>
+                <p className="text-xs text-slate-800 leading-relaxed font-sans font-medium">
                   Multi-frequency EM TX/RX, RM3100 magnetometer, Ag/AgCl galvanic SP, and acoustic altimeter.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-cyan-500/15 text-[10px] font-mono text-cyan-300">
+              <div className="mt-3 pt-2 border-t border-blue-200 text-[10px] font-mono text-blue-800 font-bold">
                 Edge In-Situ Acquisition
               </div>
             </div>
 
             {/* Stage 4 */}
-            <div className="p-4 rounded-xl bg-[#081b38] border border-cyan-900/40 flex flex-col justify-between">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono text-teal-400 font-bold block mb-1">04 PROCESSING</span>
-                <h4 className="text-sm font-bold text-white mb-2">EDGE & INVERSION ENGINE</h4>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                <span className="text-[10px] font-mono text-blue-700 font-extrabold block mb-1">04 PROCESSING</span>
+                <h4 className="text-sm font-bold text-slate-900 mb-2">EDGE & INVERSION ENGINE</h4>
+                <p className="text-xs text-slate-700 leading-relaxed font-sans font-medium">
                   Conductivity correction, 1/r^3 standoff normalization, Kalman IMU attitude filtering, and signature matching.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-cyan-500/15 text-[10px] font-mono text-slate-400">
+              <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] font-mono text-slate-600 font-bold">
                 Closed-Loop Decision Core
               </div>
             </div>
 
             {/* Stage 5 */}
-            <div className="p-4 rounded-xl bg-[#081b38] border border-cyan-900/40 flex flex-col justify-between">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col justify-between">
               <div>
-                <span className="text-[10px] font-mono text-emerald-400 font-bold block mb-1">05 DELIVERABLE</span>
-                <h4 className="text-sm font-bold text-white mb-2">PROSPECTIVITY MAP</h4>
-                <p className="text-xs text-slate-300 leading-relaxed font-sans">
+                <span className="text-[10px] font-mono text-emerald-700 font-extrabold block mb-1">05 DELIVERABLE</span>
+                <h4 className="text-sm font-bold text-slate-900 mb-2">PROSPECTIVITY MAP</h4>
+                <p className="text-xs text-slate-700 leading-relaxed font-sans font-medium">
                   Georeferenced 0–100 target similarity scores, spatial rescan validation status, and visual snapshots.
                 </p>
               </div>
-              <div className="mt-3 pt-2 border-t border-cyan-500/15 text-[10px] font-mono text-slate-400">
+              <div className="mt-3 pt-2 border-t border-slate-200 text-[10px] font-mono text-slate-600 font-bold">
                 Actionable Exploration GIS
               </div>
             </div>
@@ -156,13 +156,13 @@ export const ArchitectureSection: React.FC = () => {
       {activeTab === 'hardware' && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {hardwareModules.map((hw, idx) => (
-            <div key={idx} className="p-4 rounded-2xl bg-[#06142a]/90 border border-cyan-500/25 shadow-xl backdrop-blur-md">
+            <div key={idx} className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xl">
               <div className="flex items-center gap-2 mb-2">
-                <Cpu className="w-4 h-4 text-cyan-400" />
-                <span className="text-xs font-mono font-bold text-cyan-300 uppercase">{hw.name}</span>
+                <Cpu className="w-4 h-4 text-blue-700" />
+                <span className="text-xs font-mono font-bold text-blue-900 uppercase">{hw.name}</span>
               </div>
-              <h4 className="text-sm font-bold text-white mb-2">{hw.item}</h4>
-              <p className="text-xs text-slate-300 leading-relaxed">{hw.role}</p>
+              <h4 className="text-sm font-bold text-slate-900 mb-2">{hw.item}</h4>
+              <p className="text-xs text-slate-700 leading-relaxed font-medium">{hw.role}</p>
             </div>
           ))}
         </div>
@@ -172,18 +172,120 @@ export const ArchitectureSection: React.FC = () => {
       {activeTab === 'software' && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {softwareModules.map((sw, idx) => (
-            <div key={idx} className="p-4 rounded-2xl bg-[#06142a]/90 border border-cyan-500/25 shadow-xl backdrop-blur-md flex items-start gap-3">
-              <span className="text-sm font-bold font-mono text-cyan-400 bg-cyan-950 px-2 py-1 rounded border border-cyan-800">
+            <div key={idx} className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xl flex items-start gap-3">
+              <span className="text-sm font-bold font-mono text-blue-800 bg-blue-50 px-2 py-1 rounded border border-blue-200 shrink-0">
                 {sw.step}
               </span>
               <div>
-                <h4 className="text-sm font-bold text-white mb-1">{sw.name}</h4>
-                <p className="text-xs text-slate-300 leading-relaxed">{sw.desc}</p>
+                <h4 className="text-sm font-bold text-slate-900 mb-1">{sw.name}</h4>
+                <p className="text-xs text-slate-700 leading-relaxed font-medium">{sw.desc}</p>
               </div>
             </div>
           ))}
         </div>
       )}
+
+      {/* Interactive ROV Payload Decoupling Architecture Diagram */}
+      <div className="mt-10 bg-slate-950 text-white rounded-3xl p-6 md:p-8 border border-slate-800 shadow-2xl overflow-hidden relative">
+        <div className="flex flex-wrap items-center justify-between border-b border-slate-800 pb-4 mb-6 gap-3">
+          <div className="flex items-center gap-2">
+            <Cpu className="w-5 h-5 text-amber-400" />
+            <h3 className="text-base md:text-lg font-extrabold tracking-tight text-white font-mono">
+              VARUNA06 ROV SUBSYSTEM DECOUPLING DIAGRAM
+            </h3>
+          </div>
+          <span className="text-[10px] font-mono font-bold px-2.5 py-1 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30 uppercase tracking-widest">
+            PRESSURE HOUSING & SENSOR CARTRIDGE DECOUPLING
+          </span>
+        </div>
+
+        <div className="max-w-4xl mx-auto py-2">
+          {/* Top Level: VARUNA06 ROV */}
+          <div className="flex flex-col items-center">
+            <div className="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-black text-sm shadow-xl flex items-center gap-2 border border-amber-300">
+              <Layers className="w-4 h-4 text-slate-950" />
+              <span>VARUNA06 ROV PLATFORM</span>
+            </div>
+
+            {/* Down Stem */}
+            <div className="w-0.5 h-6 bg-slate-700"></div>
+            
+            {/* Horizontal Split Line */}
+            <div className="w-64 sm:w-80 md:w-96 h-0.5 bg-slate-700 relative">
+              <div className="absolute left-0 top-0 w-0.5 h-6 bg-slate-700"></div>
+              <div className="absolute right-0 top-0 w-0.5 h-6 bg-slate-700"></div>
+            </div>
+
+            {/* Two Columns: Pressure Housing vs Sensor Cartridge */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 w-full pt-6">
+              
+              {/* Left Column: Pressure Housing */}
+              <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col items-center text-center space-y-3 shadow-lg hover:border-blue-500 transition-all">
+                <div className="px-3 py-1 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold font-mono uppercase tracking-wider">
+                  PRESSURE HOUSING
+                </div>
+                <p className="text-[11px] text-slate-400 font-sans">Dry Pressure Vessel (25m / 4000m Rated)</p>
+                <div className="w-full space-y-2 pt-2 border-t border-slate-800 text-xs font-mono">
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 text-blue-300 font-bold flex items-center justify-between">
+                    <span>ESP32 / DAQ MCU</span>
+                    <span className="text-[9px] bg-blue-900/60 px-1.5 py-0.5 rounded text-blue-200">24-bit ADC</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 text-slate-300 font-bold flex items-center justify-between">
+                    <span>POWER MODULE</span>
+                    <span className="text-[9px] bg-amber-900/60 px-1.5 py-0.5 rounded text-amber-200">48V to 5V/12V</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 text-emerald-300 font-bold flex items-center justify-between">
+                    <span>COMMUNICATION</span>
+                    <span className="text-[9px] bg-emerald-900/60 px-1.5 py-0.5 rounded text-emerald-200">Tether Link</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column: Sensor Cartridge */}
+              <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col items-center text-center space-y-3 shadow-lg hover:border-amber-500 transition-all">
+                <div className="px-3 py-1 rounded-lg bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-bold font-mono uppercase tracking-wider">
+                  SENSOR CARTRIDGE
+                </div>
+                <p className="text-[11px] text-slate-400 font-sans">External Multi-Physics Wetted Array</p>
+                <div className="w-full space-y-1.5 pt-2 border-t border-slate-800 text-xs font-mono">
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 text-amber-300 font-bold text-left flex items-center justify-between">
+                    <span>EMI TX/RX COILS</span>
+                    <span className="text-[9px] text-slate-400">Multi-Freq</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 text-amber-300 font-bold text-left flex items-center justify-between">
+                    <span>RM3100 MAGNETOMETER</span>
+                    <span className="text-[9px] text-slate-400">13 nT 3-Axis</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 text-amber-300 font-bold text-left flex items-center justify-between">
+                    <span>GALVANIC SP ELECTRODES</span>
+                    <span className="text-[9px] text-slate-400">Ag/AgCl</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 text-amber-300 font-bold text-left flex items-center justify-between">
+                    <span>ACOUSTIC ALTIMETER</span>
+                    <span className="text-[9px] text-slate-400">500 kHz</span>
+                  </div>
+                  <div className="p-2 rounded bg-slate-950 border border-slate-800 text-amber-300 font-bold text-left flex items-center justify-between">
+                    <span>OPTICAL CAMERA & LIGHTS</span>
+                    <span className="text-[9px] text-slate-400">4K Sony</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Downward Flow Arrow to Seafloor Response */}
+            <div className="flex flex-col items-center mt-6">
+              <div className="w-0.5 h-8 bg-amber-500 animate-pulse"></div>
+              <div className="w-3 h-3 border-r-2 border-b-2 border-amber-500 transform rotate-45 -mt-2"></div>
+              <div className="mt-2 px-6 py-2.5 rounded-xl bg-emerald-950 border border-emerald-500 text-emerald-300 font-black text-xs font-mono tracking-widest uppercase shadow-lg shadow-emerald-950/50 flex items-center gap-2">
+                <Activity className="w-4 h-4 text-emerald-400" />
+                <span>SEAFLOOR RESPONSE (MULTI-PHYSICS PROSPECTIVITY SIGNATURE)</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

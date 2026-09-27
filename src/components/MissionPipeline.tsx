@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { MISSION_STAGES } from '../data/mockData';
 import {
   Anchor,
@@ -35,20 +35,73 @@ export const MissionPipeline: React.FC = () => {
 
   return (
     <section id="mission-intelligence" className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative">
-      <div className="text-center max-w-3xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-xs font-mono mb-4">
-          <Navigation className="w-3.5 h-3.5 text-cyan-400" />
-          <span>SECTION 08 // CLOSED-LOOP MISSION INTELLIGENCE</span>
-        </div>
-        <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-          The Closed-Loop Investigation Engine
-        </h2>
-        <p className="text-slate-300 text-base md:text-lg leading-relaxed">
-          VARUNA06 goes beyond simple detection. It autonomously drives an iterative 8-stage investigation loop:
-          <span className="text-cyan-300 font-mono font-bold block mt-1">
-            DEPLOY → DETECT → SCORE → DECIDE → MOVE → RESCAN → CONFIRM → MAP
+      {/* 🌊 03 — SENSOR → EVIDENCE PIPELINE VISUAL FLOWCHART 🌊 */}
+      <div className="bg-[#0f172a] text-white border-2 border-blue-500/40 rounded-3xl p-6 md:p-8 shadow-2xl mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-6">
+          <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest block mb-1">
+            03 — SENSOR → EVIDENCE PROCESSING PIPELINE
           </span>
-        </p>
+          <h3 className="text-xl md:text-2xl font-extrabold text-white">
+            Raw Physics to Verified Target GIS Map
+          </h3>
+          <p className="text-xs text-slate-300 font-medium mt-1">
+            The core intelligence of VARUNA06: transforming continuous multi-modal physics signals into verified anomaly entries.
+          </p>
+        </div>
+
+        {/* Visual Step-by-Step Flowchart */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs font-mono">
+          
+          {/* Step 1 */}
+          <div className="w-full md:w-auto p-3 rounded-2xl bg-slate-800 border border-slate-700 text-center flex-1">
+            <span className="text-amber-400 font-bold block mb-1">01 SEAFLOOR</span>
+            <span className="text-slate-300 font-sans text-[11px] block">Ocean Seabed Survey</span>
+          </div>
+
+          <ArrowRight className="w-4 h-4 text-blue-400 shrink-0 hidden md:block" />
+          <span className="text-blue-400 font-bold md:hidden">↓</span>
+
+          {/* Step 2: Multi-Sensor Suite */}
+          <div className="w-full md:w-auto p-3 rounded-2xl bg-blue-950 border border-blue-500/50 text-center flex-2">
+            <span className="text-blue-300 font-bold block mb-1">02 MULTI-SENSOR SUITE</span>
+            <div className="grid grid-cols-3 gap-1 text-[9px] text-slate-300 font-sans">
+              <span className="bg-slate-900 px-1 py-0.5 rounded">EMI</span>
+              <span className="bg-slate-900 px-1 py-0.5 rounded">MAG</span>
+              <span className="bg-slate-900 px-1 py-0.5 rounded">GALV SP</span>
+              <span className="bg-slate-900 px-1 py-0.5 rounded">ACOUSTIC</span>
+              <span className="bg-slate-900 px-1 py-0.5 rounded">CAMERA</span>
+              <span className="bg-slate-900 px-1 py-0.5 rounded">DEPTH</span>
+            </div>
+          </div>
+
+          <ArrowRight className="w-4 h-4 text-blue-400 shrink-0 hidden md:block" />
+          <span className="text-blue-400 font-bold md:hidden">↓</span>
+
+          {/* Step 3 */}
+          <div className="w-full md:w-auto p-3 rounded-2xl bg-slate-800 border border-slate-700 text-center flex-1">
+            <span className="text-emerald-400 font-bold block mb-1">03 FUSION</span>
+            <span className="text-slate-300 font-sans text-[11px] block">Signal Processing & Physics Fusion</span>
+          </div>
+
+          <ArrowRight className="w-4 h-4 text-blue-400 shrink-0 hidden md:block" />
+          <span className="text-blue-400 font-bold md:hidden">↓</span>
+
+          {/* Step 4 */}
+          <div className="w-full md:w-auto p-3 rounded-2xl bg-purple-950 border border-purple-500/50 text-center flex-1">
+            <span className="text-purple-300 font-bold block mb-1">04 CONFIDENCE</span>
+            <span className="text-amber-300 font-extrabold text-sm block">0 – 100 Score</span>
+          </div>
+
+          <ArrowRight className="w-4 h-4 text-blue-400 shrink-0 hidden md:block" />
+          <span className="text-blue-400 font-bold md:hidden">↓</span>
+
+          {/* Step 5 */}
+          <div className="w-full md:w-auto p-3 rounded-2xl bg-emerald-950 border border-emerald-500/50 text-center flex-1">
+            <span className="text-emerald-300 font-bold block mb-1">05 VERIFIED MAP</span>
+            <span className="text-slate-300 font-sans text-[11px] block">Spatial Rescan & GIS Entry</span>
+          </div>
+
+        </div>
       </div>
 
       {/* Stage Number Tabs */}
@@ -63,17 +116,17 @@ export const MissionPipeline: React.FC = () => {
               onClick={() => setActiveStageIndex(idx)}
               className={`flex-1 min-w-[120px] p-3 rounded-xl border text-left transition-all backdrop-blur-md ${
                 isActive
-                  ? 'bg-cyan-500/25 border-cyan-400 text-white shadow-lg shadow-cyan-500/20 ring-1 ring-cyan-400'
+                  ? 'bg-blue-600 border-blue-700 text-white shadow-lg font-bold'
                   : isPassed
-                  ? 'bg-[#091b36] border-cyan-900/50 text-slate-300 hover:border-cyan-500/40'
-                  : 'bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700'
+                  ? 'bg-emerald-50 border-emerald-200 text-emerald-900 font-semibold'
+                  : 'bg-white border-slate-200 text-slate-700 hover:border-blue-300 font-medium'
               }`}
             >
               <div className="flex items-center justify-between mb-1">
-                <span className={`text-[10px] font-mono font-bold ${isActive ? 'text-cyan-300' : 'text-slate-400'}`}>
+                <span className={`text-[10px] font-mono font-bold ${isActive ? 'text-blue-100' : 'text-slate-500'}`}>
                   STAGE {stage.stageNumber}
                 </span>
-                {isPassed && <Check className="w-3.5 h-3.5 text-emerald-400" />}
+                {isPassed && <Check className="w-3.5 h-3.5 text-emerald-600 font-bold" />}
               </div>
               <div className="text-xs font-bold font-mono truncate">{stage.title}</div>
             </button>
@@ -82,23 +135,20 @@ export const MissionPipeline: React.FC = () => {
       </div>
 
       {/* Active Stage Detailed Card */}
-      <div className="bg-[#06142a]/95 border border-cyan-500/30 rounded-3xl p-6 md:p-8 shadow-2xl backdrop-blur-md relative overflow-hidden">
-        {/* Glow Accent */}
-        <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-6 pb-6 border-b border-cyan-500/20 mb-6">
+      <div className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-xl relative overflow-hidden text-slate-900">
+        <div className="flex flex-col lg:flex-row items-start justify-between gap-6 pb-6 border-b border-slate-200 mb-6">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-cyan-950 border border-cyan-400 flex items-center justify-center text-cyan-300 shadow-xl shadow-cyan-500/20 shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-300 flex items-center justify-center text-blue-700 shadow-md shrink-0">
               {getStageIcon(currentStage.iconName)}
             </div>
             <div>
-              <span className="text-xs font-mono font-bold text-cyan-400 tracking-widest uppercase">
+              <span className="text-xs font-mono font-bold text-blue-800 tracking-widest uppercase">
                 STAGE {currentStage.stageNumber} OF 08
               </span>
-              <h3 className="text-2xl md:text-3xl font-extrabold text-white mt-0.5">
+              <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mt-0.5">
                 {currentStage.title}
               </h3>
-              <p className="text-sm font-mono text-cyan-300/80 mt-1">{currentStage.tagline}</p>
+              <p className="text-sm font-mono text-blue-700 mt-1 font-bold">{currentStage.tagline}</p>
             </div>
           </div>
 
@@ -107,20 +157,20 @@ export const MissionPipeline: React.FC = () => {
             <button
               onClick={() => setActiveStageIndex(Math.max(0, activeStageIndex - 1))}
               disabled={activeStageIndex === 0}
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+              className="p-2.5 rounded-xl bg-slate-100 border border-slate-300 hover:border-blue-500 text-slate-700 hover:text-slate-900 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
               title="Previous Stage"
             >
               <ArrowLeft className="w-4 h-4" />
             </button>
 
-            <span className="text-xs font-mono text-slate-400">
+            <span className="text-xs font-mono text-slate-600 font-bold">
               {activeStageIndex + 1} / {MISSION_STAGES.length}
             </span>
 
             <button
               onClick={() => setActiveStageIndex(Math.min(MISSION_STAGES.length - 1, activeStageIndex + 1))}
               disabled={activeStageIndex === MISSION_STAGES.length - 1}
-              className="p-2.5 rounded-xl bg-cyan-500/20 border border-cyan-400 hover:bg-cyan-500/30 text-cyan-200 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+              className="p-2.5 rounded-xl bg-blue-600 border border-blue-700 text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed font-bold"
               title="Next Stage"
             >
               <ArrowRight className="w-4 h-4" />
@@ -129,38 +179,35 @@ export const MissionPipeline: React.FC = () => {
         </div>
 
         {/* Narrative Description */}
-        <p className="text-sm md:text-base text-slate-200 leading-relaxed font-sans mb-8">
+        <p className="text-sm md:text-base text-slate-800 leading-relaxed font-sans mb-8 font-medium">
           {currentStage.description}
         </p>
 
-        {/* Technical Sub-Panels: Action Protocol, Sensor Verification, Decision Gate */}
+        {/* Technical Sub-Panels */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Action Protocol */}
-          <div className="p-4 rounded-2xl bg-[#091e3e] border border-cyan-900/50">
-            <span className="text-[10px] font-mono text-cyan-400 font-bold block uppercase mb-1.5">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <span className="text-[10px] font-mono text-blue-800 font-extrabold block uppercase mb-1.5">
               ACTION PROTOCOL
             </span>
-            <p className="text-xs text-slate-300 font-mono leading-relaxed">
+            <p className="text-xs text-slate-800 font-mono leading-relaxed font-medium">
               {currentStage.actionProtocol}
             </p>
           </div>
 
-          {/* Sensor Verification */}
-          <div className="p-4 rounded-2xl bg-[#091e3e] border border-cyan-900/50">
-            <span className="text-[10px] font-mono text-teal-400 font-bold block uppercase mb-1.5">
+          <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+            <span className="text-[10px] font-mono text-emerald-800 font-extrabold block uppercase mb-1.5">
               SENSOR VERIFICATION BUS
             </span>
-            <p className="text-xs text-slate-300 font-mono leading-relaxed">
+            <p className="text-xs text-slate-800 font-mono leading-relaxed font-medium">
               {currentStage.sensorVerification}
             </p>
           </div>
 
-          {/* Decision Gate */}
-          <div className="p-4 rounded-2xl bg-cyan-950/40 border border-cyan-500/30">
-            <span className="text-[10px] font-mono text-amber-400 font-bold block uppercase mb-1.5">
+          <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200">
+            <span className="text-[10px] font-mono text-amber-900 font-extrabold block uppercase mb-1.5">
               DECISION GATE RULE
             </span>
-            <p className="text-xs text-slate-200 font-mono font-semibold leading-relaxed">
+            <p className="text-xs text-slate-900 font-mono font-bold leading-relaxed">
               {currentStage.decisionGate}
             </p>
           </div>
