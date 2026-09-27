@@ -18,6 +18,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
       subtitle: 'A modular tethered ROV for preliminary seafloor anomaly detection, adaptive investigation and geo-referenced mapping.',
       desc: '25 m shallow-water field-tested prototype featuring 6+ multi-modal sensing payload, ESP32 real-time control, and adaptive 4-point rescan verification.',
       badge: 'V2 CURRENT PROTOTYPE • 25m DEPTH RATED',
+      videoSrc: '/assets/sixnode_explaining_concept.mp4',
       videoCaption: 'This explains our current prototype and six node concept'
     },
     {
@@ -27,6 +28,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
       subtitle: 'Laboratory Benchtop Testing & Multi-Physics Sensor Integration',
       desc: 'Initial testing of EM TX/RX induction coils, RM3100 magnetometer, MS5803 pressure sensor, and ESP32 microcontroller signal processing.',
       badge: 'V1 PROTOTYPE • BENCHTOP VALIDATED',
+      videoSrc: '/assets/PROTOTYPE%20V1.0%20LIVE%20DEMO.mp4',
       videoCaption: 'V1 Concept: Initial Sensor Coil & Electronics Bench Testing'
     },
     {
@@ -36,6 +38,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
       subtitle: 'Target 6,000 m Ultra-Deep Ocean Architecture (596 atm Hydrostatic Rating)',
       desc: 'Target architecture benchmarked against 6,000 m class deep ocean ROVs (NOAA Deep Discoverer / NIOT ROSUB-6000) with titanium pressure vessel, USBL/INS navigation, and heavy thrusters.',
       badge: 'FINAL ARCHITECTURE • 6,000 m TARGET RATED',
+      videoSrc: '/assets/WORKING%20VIDEO%20OF%20PROTO%20UNDERWATER.mp4',
       videoCaption: 'Final Target Architecture: Industrial Deep Ocean Deployment'
     }
   ];
@@ -153,7 +156,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
                 {/* HTML5 Video Player */}
                 <div className="relative w-full aspect-video bg-black flex items-center justify-center overflow-hidden">
                   <video
-                    src="/sixnode%20explaining%20concept.mp4"
+                    key={currentSlide.videoSrc}
+                    src={currentSlide.videoSrc}
                     autoPlay
                     loop
                     muted
