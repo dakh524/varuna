@@ -17,9 +17,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
       title: 'VARUNA 06 — Low-Cost Intelligent Seafloor Investigation Platform',
       subtitle: 'A modular tethered ROV for preliminary seafloor anomaly detection, adaptive investigation and geo-referenced mapping.',
       desc: '25 m shallow-water field-tested prototype featuring 6+ multi-modal sensing payload, ESP32 real-time control, and adaptive 4-point rescan verification.',
-      badge: 'V2 CURRENT PROTOTYPE • 25m DEPTH RATED',
+      badge: 'VARUNA 06 ANIMATED VIDEO • 25m DEPTH RATED',
       videoSrc: '/assets/varuna06_hero_demo.mp4',
-      videoCaption: 'Current Field-Tested VARUNA 06 Live Prototype Demo'
+      videoCaption: 'VARUNA 06 Animated Concept Video — Current Field-Tested Prototype Demo'
     },
     {
       version: 'V1 PROTOTYPE (BENCHTOP)',
@@ -146,7 +146,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
                 <div className="flex items-center justify-between z-10 p-3 bg-slate-950/90 backdrop-blur-md border-b border-white/10">
                   <span className="px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 text-[10px] font-bold flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>{currentSlide.version} DEMO</span>
+                    <span>VARUNA 06 ANIMATED VIDEO</span>
                   </span>
                   <span className="text-[10px] text-amber-300 font-bold">
                     {currentSlide.badge}
