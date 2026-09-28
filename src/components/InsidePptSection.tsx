@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { 
-  FileText, Download, ExternalLink, ChevronLeft, ChevronRight, 
-  Layers, ShieldCheck, Cpu, Database, Award, Sparkles, Eye, CheckCircle2, 
-  TrendingUp, BarChart3, Radio, Compass, Anchor, ArrowRight, BookOpen, AlertCircle 
+import {
+  FileText, Download, ExternalLink, ChevronLeft, ChevronRight,
+  Layers, ShieldCheck, Cpu, Database, Award, Sparkles, Eye, CheckCircle2,
+  TrendingUp, BarChart3, Radio, Compass, Anchor, ArrowRight, BookOpen, AlertCircle
 } from 'lucide-react';
 
 export const InsidePptSection: React.FC = () => {
@@ -12,146 +12,131 @@ export const InsidePptSection: React.FC = () => {
   const slidesData = [
     {
       slideNum: 1,
-      tag: "SLIDE 01 // PROBLEM STATEMENT & BASELINE",
-      title: "Problem Statement 26064 & Current Systems Analysis",
+      tag: "TAB 01 // PROBLEM STATEMENT & BASELINE",
+      tabTitle: "1. Problem Statement",
+      title: "Problem Statement 26064 & Current Systems Bottleneck",
       subtitle: "Ministry of Earth Sciences (MoES) • National Centre for Polar and Ocean Research (NCPOR)",
+      jumpAnchor: "#problem",
       keyHighlights: [
         "Problem Statement ID: 26064 (Category: Hardware | Theme: Robotics and Drones)",
-        "Team Lorenzini | Team ID: 179424 | Smart India Hackathon 2026",
-        "Target Deposit Types: Polymetallic Nodules, Hydrothermal Sulphides, Cobalt-Rich Crusts, REE Sediments",
-        "Existing Systems Review: Analysis of NIOT ROSUB 6000 tethered ROV and commercial deep-water survey platforms."
+        "Mandate: Design & develop low-cost ocean-bottom sensor for preliminary metal deposit screening.",
+        "Target Deposit Types: Polymetallic Nodules, Hydrothermal Sulphides, Cobalt Crusts, REE Sediments.",
+        "Current Bottleneck: Million-dollar ROV deployments (e.g., ROSUB 6000) cost $30,000–$80,000/day.",
+        "Goal: Eliminate exhaustive physical grab-sampling by pre-screening high-probability mineral zones."
       ],
-      details: `Slide 1 establishes the core mission mandated by MoES and NCPOR under India's Deep Ocean Mission. Conventional seafloor metal exploration relies on massive, million-dollar tethered ROVs (such as ROSUB 6000) or exhaustive physical grab-sampling. 
-      VARUNA 06 addresses this bottleneck by providing a rapid, low-cost deployable seafloor sensor payload capable of preliminary screening to locate high-probability mineral deposits prior to heavy equipment deployment.`,
+      details: `Tab 1 establishes the core problem mandated under India's Deep Ocean Mission. Conventional seafloor mineral exploration relies on massive, million-dollar tethered ROVs or blind physical grab-sampling across vast maritime zones. Operating these heavy survey vessels incurs extreme daily costs ($30,000+/day). VARUNA06 solves this bottleneck by serving as a rapid, low-cost deployable preliminary screening payload.`,
       sections: [
         {
           heading: "Official Problem Description",
-          content: "Design and develop a low-cost deployable ocean-bottom sensor that can be released from a research vessel during surveys to detect and map metal-rich seabed deposits, including polymetallic nodules, hydrothermal sulphides, cobalt-rich crusts and rare-earth element-bearing sediments."
+          content: "Design and develop a low-cost deployable ocean-bottom sensor that can be released from a research vessel during surveys to detect and map metal-rich seabed deposits, including polymetallic nodules, hydrothermal sulphides, cobalt-rich crusts and REE sediments."
         },
         {
           heading: "Current Approach & NIOT Baseline",
-          content: "NIOT has developed deep-water Remotely Operated Vehicles (ROVs), including ROSUB 6000, carrying optical cameras, sonar, and tools. While powerful, operating tethered ROVs across vast ocean basins incurs extreme hourly operational costs ($30,000+/day). VARUNA 06 acts as a preliminary target screener to optimize survey vessel time."
+          content: "NIOT has developed deep-water ROVs (such as ROSUB 6000) equipped with optical cameras, sonar, and manipulator tools. While powerful, deploying heavy ROVs across broad ocean basins is cost-prohibitive for initial screening. VARUNA06 acts as an agile preliminary target screener to optimize survey ship time."
         }
       ]
     },
     {
       slideNum: 2,
-      tag: "SLIDE 02 // IDEA & MULTI-PHYSICS SENSING",
-      title: "What is VARUNA 06? Core Innovation & Motive",
-      subtitle: "Shark-Inspired Sensing (Ampullae of Lorenzini) • Evidence-Driven Seafloor Screening",
+      tag: "TAB 02 // VARUNA06 INNOVATIVE SOLUTION",
+      tabTitle: "2. Solution",
+      title: "Multi-Physics Sensing Engine & Autonomous 4-Point Rescan",
+      subtitle: "Shark-Inspired Electro-Reception (Ampullae of Lorenzini) • 1.25m Acoustic Lock • 0-100% Scoring",
+      jumpAnchor: "#robot-viewer",
       keyHighlights: [
-        "Product: Low-cost tethered underwater robotic platform for preliminary seabed metal detection & mapping",
-        "Motive: Make seafloor resource exploration affordable, accessible, and data-driven before dredging",
-        "Target: Enable research institutes and oceanographic agencies to rapidly screen vast maritime zones",
-        "4 Innovation Pillars: Multi-Physics Sensing, Metal-Specific Scoring, Multi-Position Verification, Evidence-Based Confidence"
+        "Multi-Physics Engine: Combines EMI, RM3100 Magnetometer, Galvanic SP Electrodes, Acoustics, and 4K Optics.",
+        "Shark-Inspired Sensing: Modeled after Ampullae of Lorenzini electro-receptive organs in marine predators.",
+        "1.25m Acoustic Standoff: 500 kHz acoustic altimeter holds constant standoff to counteract 1/r³ EM decay.",
+        "Metal Prospectivity Scoring: Calibrates indices (0–100%) for Copper (82%), Manganese (76%), Nickel (64%), Cobalt (47%).",
+        "Closed-Loop 4-Point Rescan: Repositioning routine (0.8m N → E → S → W) eliminating 80%+ false positive alarms."
       ],
-      details: `Inspired by the electro-receptive organs of sharks (Ampullae of Lorenzini), Team Lorenzini designed VARUNA 06 to synthesize multiple physical field variations (electromagnetic, magnetic, electrical conductivity, acoustic backscatter, and optical imagery). 
-      Instead of relying on a single detection pass, VARUNA 06 executes a closed-loop MOVE → RESCAN protocol to confirm real subsea anomalies and eliminate false positives caused by marine debris or geological noise.`,
+      details: `Tab 2 presents the complete VARUNA06 technological solution. Inspired by the electro-receptive organs of sharks, VARUNA06 synthesizes 5 physical field signals into calibrated mineral prospectivity scores. On anomaly trip (>60 confidence score), the edge decision engine executes a 4-point cross-pattern micro-translation routine to verify 3D field decay and reject scrap-metal false alerts.`,
       sections: [
         {
-          heading: "Multi-Physics Sensing Engine",
-          content: "Combines EMI (Electromagnetic Induction), 3-axis Magnetic Anomaly Detection (RM3100), Self-Potential (SP) Galvanic Electrodes, Hydroacoustic Altimetry, and High-Resolution Optical Imaging to map seafloor mineral deposits."
+          heading: "Multi-Sensor Fusion Architecture",
+          content: "Ventral EM transmitter coils, differential receiver pairs, 3-axis RM3100 fluxgate magnetometers, and silver-chloride SP electrodes operate simultaneously to cross-validate subsea conductive signatures."
         },
         {
-          heading: "Metal-Specific Prospectivity Scoring (0-100)",
-          content: "Converts raw sensor signatures into calibrated prospectivity indices (0 to 100%) for specific targets (e.g., Manganese Nodules vs. Ferromanganese Crusts) based on conductivity, permeability, and acoustic backscatter signatures."
+          heading: "Closed-Loop Autonomous Rescan Logic",
+          content: "When preliminary prospectivity trips >60, vector thrusters translate 0.8m in 4 orthogonal directions around the anomaly epicenter to measure spatial consistency and confirm geological bodies."
         }
       ]
     },
     {
       slideNum: 3,
-      tag: "SLIDE 03 // ARCHITECTURE & HARDWARE EVOLUTION",
-      title: "Engineering Workflow & 3-Stage Prototype Evolution",
-      subtitle: "V1 Benchtop → V2 25m Integrated Prototype → Final VARUNA06 ROV Platform",
+      tag: "TAB 03 // PROTOTYPE TESTING & RESEARCH FOUNDATION",
+      tabTitle: "3. Our Test & Research",
+      title: "3-Stage Prototype Evolution, IEEE Papers & Digital Twin",
+      subtitle: "V1 Benchtop → V2 25m Prototype → Final Platform • 5 IEEE Papers • GEBCO / NOAA Datasets",
+      jumpAnchor: "#simulator",
       keyHighlights: [
-        "V1 Sensor Prototype: Proof-of-concept EM coils, RM3100 magnetometer, ESP32 data logger, shallow water testing.",
+        "V1 Benchtop Prototype: Laboratory coil calibration, RM3100 magnetometer integration, ESP32 data logger.",
         "V2 Integrated Prototype: 25m depth-rated waterproof housing, 1 thruster mobility, MS5803 depth sensor, live telemetry.",
         "Final VARUNA06 Platform: 4-thruster vector propulsion, modular sensor cartridge, marine tether, surface control station.",
-        "12-Step Closed-Loop Survey Workflow: From survey launch and signal filtering to AI anomaly scoring and 3D bathymetric mapping."
+        "10-Hz Telemetry Digital Twin: Real-time operator dashboard streaming depth, standoff, EM voltage, and magnetic vectors.",
+        "5 Published IEEE Papers: Grounded in peer-reviewed MAD, CEMS, and multi-modal subsea data fusion literature."
       ],
-      details: `Slide 3 highlights the rigorous engineering progression achieved by Team Lorenzini. Starting from laboratory benchtop coil calibration (V1), the team advanced to a functional 25-meter depth-rated prototype (V2) with integrated thruster mobility and live telemetry. 
-      The final VARUNA 06 architecture features a modular sensor cartridge housing 3-axis fluxgate magnetometers, dual EM TX/RX coils, acoustic altimeters, and real-time operator surface dashboards.`,
+      details: `Tab 3 details our empirical testing and academic foundation. Team Lorenzini advanced from laboratory coil calibration (V1) to a functional 25m depth-rated prototype (V2) tested in marine environments. Every sensor frequency, filtering algorithm, and fusion layer is grounded in 5 peer-reviewed IEEE research papers and cross-validated against GEBCO, NOAA, and ISA global marine geophysics datasets.`,
       sections: [
         {
-          heading: "Comprehensive Hardware & Software Tech Stack",
-          content: "Hardware: Raspberry Pi 4, ESP32, RM3100 Magnetometer, MS5803 Depth Sensor, Brushless Thrusters, custom PCB frontend. Software: Python, C++, TensorFlow, Scikit-learn, OpenCV, MATLAB, Proteus, KiCad, QGroundControl, PostgreSQL, Next.js dashboard."
+          heading: "Empirical Prototype Progression",
+          content: "Field testing validated 24-bit ADC voltage resolution, MS5803 depth sensing, and real-time noise cancellation algorithms that isolate thruster motor harmonics from delicate EM receiver coils."
         },
         {
-          heading: "12-Stage Operational Pipeline",
-          content: "1. Launch & Recovery → 2. Acquisition → 3. Filtering & Noise Cancellation → 4. Motion Correction → 5. Anomaly Detection (Isolation Forest) → 6. Multi-Frequency Scan → 7. Adaptive Repositioning → 8. Visual Confirmation → 9. Telemetry → 10. Dashboard Plot → 11. GIS Mapping → 12. Safety Surfacing."
+          heading: "IEEE Literature & Global Dataset Grounding",
+          content: "Algorithms adhere to IEEE standards for Controlled Source Electromagnetic (CEMS) sensing and Magnetic Anomaly Detection (MAD), verified using GEBCO bathymetric grids and NOAA geophysics records."
         }
       ]
     },
     {
       slideNum: 4,
-      tag: "SLIDE 04 // FEASIBILITY, VIABILITY & WOW FACTORS",
-      title: "Technical Feasibility & Differentiating WOW Factors",
-      subtitle: "COTS Architecture • Practical Advantage over Conventional Survey Systems",
+      tag: "TAB 04 // COMMERCIALIZATION & IMPACT",
+      tabTitle: "4. Business Model",
+      title: "ROV-as-a-Service (RaaS) Model & 97.5% Cost Reduction",
+      subtitle: "RaaS Subscription • ~97.5% Cost Advantage vs. $2M Heavy AUVs • Blue Economy Alignment",
+      jumpAnchor: "#business-swot",
       keyHighlights: [
-        "Technical Feasibility: Modular replaceable sensor cartridges, tethered power & data, pressure-tested seals",
-        "Operational Practicability: Controlled ROV maneuvers, real-time surface monitoring, multi-angle verification",
-        "WOW Factor 1: Multi-sensor cross-validation reduces false-positive detection rates to near zero",
-        "WOW Factor 2: Adaptive rescanning focuses high-resolution multi-frequency scans only where candidate zones exist"
+        "Target Audience: Oceanographic research institutes, universities, marine survey firms, mineral exploration teams.",
+        "RaaS Business Model: Pay-per-mission survey deployments, data analytics reports, and platform hardware upgrades.",
+        "Extreme Cost Advantage: ~97.5% lower cost compared to $2M+ heavy commercial survey AUVs.",
+        "Environmental Preservation: Prevents seabed scarring by eliminating blind physical dredging & grab-sampling.",
+        "Blue Economy Alignment: Supports India's Deep Ocean Mission policies through non-destructive screening."
       ],
-      details: `Slide 4 demonstrates why VARUNA 06 is both economically viable and technically superior to traditional oceanographic survey methods. By using Commercial Off-The-Shelf (COTS) precision sensors combined with proprietary signal processing algorithms, VARUNA 06 achieves full multi-physics anomaly scoring at a fraction of standard commercial costs.`,
+      details: `Tab 4 outlines the commercial viability and environmental impact of VARUNA06. Operating under an ROV-as-a-Service (RaaS) model, VARUNA06 enables academic institutions and government agencies to access turnkey mineral prospectivity maps without capital-investing millions in heavy survey vessels. Non-destructive electromagnetic screening protects benthic ecosystems while optimizing survey ship ROI.`,
       sections: [
         {
-          heading: "Conventional ROV vs. VARUNA 06 Comparison",
-          content: "Conventional systems perform fixed, single-pass surveys with limited sensors, resulting in high false alarm rates and expensive physical re-surveys. VARUNA 06 uses adaptive multi-frequency scanning and automatic repositioning to verify target signatures before logging."
+          heading: "RaaS Service Workflow",
+          content: "Deploy → Scan → Score → Rescan → Confirm → Map. Delivers georeferenced GIS prospectivity layers and raw sensor telemetry logs to client agencies."
         },
         {
-          heading: "Field Validation Roadmap",
-          content: "Build → Validate (Lab Tank & 25m Marine Tests) → Improve (Multi-Thruster Upgrade & Noise Cancellation) → Scale (4000m Pressure-Rated Deep-Water Platform)."
+          heading: "Environmental & Strategic Blue Economy Alignment",
+          content: "Non-destructive electromagnetic induction and passive magnetic measurement eliminate destructive preliminary dredging, directly aligning with UNCLOS maritime environmental guidelines."
         }
       ]
     },
     {
       slideNum: 5,
-      tag: "SLIDE 05 // BUSINESS MODEL & SOCIETAL IMPACT",
-      title: "Startup Potential, RaaS Model & Environmental Benefits",
-      subtitle: "ROV-as-a-Service (RaaS) • ~97.5% Cost Reduction • Sustainable Exploration",
+      tag: "TAB 05 // TEAM SECRETARIAT & MENTORSHIP",
+      tabTitle: "5. Our Team & Mentors",
+      title: "Team Lorenzini & NIOT Chennai Domain Mentorship",
+      subtitle: "Smart India Hackathon 2026 Secretariat • Expert Guidance from NIOT Senior Scientists",
+      jumpAnchor: "#team",
       keyHighlights: [
-        "Target Audience: Oceanographic research institutes, universities, marine survey firms, mineral exploration teams",
-        "RaaS Business Model: Pay-per-mission deployment, survey data analytics reports, and platform hardware upgrades",
-        "Extreme Cost Advantage: ~97.5% lower cost compared to $2M+ heavy commercial survey AUVs",
-        "Societal & Environmental Impact: Prevents unnecessary seabed scarring by targeting only high-confidence mineral zones"
+        "Team Lorenzini (Team ID: 179424): Multi-disciplinary hardware, software, robotics, and geophysics team.",
+        "Domain Mentorship: Expert guidance from senior marine technology scientists & researchers at NIOT Chennai.",
+        "NIOT Feedback Integration: 4000m pressure housing roadmap, modular cartridge bays, and thruster noise decoupling.",
+        "Smart India Hackathon Secretariat: Full alignment with SIH hardware evaluation criteria and MoES guidelines.",
+        "Open Ocean Readiness: Dedicated development roadmap from lab tank validation to deep-sea sea trials."
       ],
-      details: `Slide 5 details the commercialization strategy for VARUNA 06 under the ROV-as-a-Service (RaaS) model. Instead of requiring research agencies to capital-invest millions in heavy survey ships and ROVs, VARUNA 06 offers deployable survey missions providing turnkey mineral prospectivity maps and raw sensor telemetry.`,
+      details: `Tab 5 introduces Team Lorenzini and our domain mentorship network. Our hardware, software, and robotics engineers worked closely under the guidance of senior marine scientists at the National Institute of Ocean Technology (NIOT) Chennai. Technical feedback from NIOT expert interactions shaped our modular sensor cartridge system and noise cancellation algorithms.`,
       sections: [
         {
-          heading: "From Detection to Decision (Execution Pipeline)",
-          content: "Deploy → Scan → Score → Rescan → Confirm → Map. Strengthens India's marine resource security while providing accessible survey capabilities to national research universities."
+          heading: "Domain Guidance from NIOT Scientists",
+          content: "Technical reviews with NIOT Chennai marine experts validated our acoustic standoff altitude requirements and informed our deep-water pressure-housing roadmap."
         },
         {
-          heading: "Environmental & Blue Economy Alignment",
-          content: "Minimizes benthic ecosystem disturbance by eliminating blind physical grab-sampling. Supports India's Deep Ocean Mission and Blue Economy policies through targeted, non-destructive electromagnetic survey techniques."
-        }
-      ]
-    },
-    {
-      slideNum: 6,
-      tag: "SLIDE 06 // IEEE RESEARCH SOURCES & EXPERT VALIDATION",
-      title: "IEEE Literature Foundation & Marine Dataset Cross-Validation",
-      subtitle: "5 Published IEEE Papers • GEBCO Bathymetry • NOAA NCEI • EMODnet • ISA • NIOT Guidance",
-      keyHighlights: [
-        "IEEE Paper 1: Theories & Applications for Magnetic Anomaly Detection (MAD) Technology",
-        "IEEE Paper 2: Controlled Source Electromagnetic (CEMS) Sensing for Compact Seabed Targets",
-        "IEEE Paper 3: Mixed Seabed Sediment Classification via Transferred CNNs",
-        "IEEE Paper 4: Seafloor Classification by Fusing AUV Acoustic & Magnetic Data",
-        "IEEE Paper 5: Advances in Fusion of High-Resolution Underwater Optical & Acoustic Data",
-        "Global Datasets Integrated: GEBCO Bathymetric Grids, NOAA Marine Geophysics, EMODnet Geology, ISA Mineral Records",
-        "Domain Mentorship: Expert guidance from senior scientists & researchers at NIOT Chennai"
-      ],
-      details: `Slide 6 establishes the solid academic foundation backing VARUNA 06. Every sensor frequency, magnetic threshold, and multi-modal fusion layer is grounded in 5 peer-reviewed IEEE papers and verified against official marine geophysical repositories (GEBCO, NOAA, EMODnet, ISA). 
-      Furthermore, field design feedback was obtained directly through research interactions with ocean technology experts at NIOT Chennai.`,
-      sections: [
-        {
-          heading: "Primary Source Research Validation",
-          content: "Following IEEE multi-sensor fusion guidelines, VARUNA 06 combines independent physical measurements (EM response, magnetic anomaly, galvanic SP, bathymetry, and optical frames) so that isolated sensor glitches cannot trigger false deposit alerts."
-        },
-        {
-          heading: "Expert Guidance & Deep-Sea Pressure Readiness",
-          content: "Interactions with NIOT marine scientists confirmed the need for modular 4000m pressure-tolerant enclosures and real-time noise decoupling from thruster motor harmonics."
+          heading: "SIH 2026 Secretariat & Deliverables",
+          content: "Team Lorenzini delivers a fully integrated physical prototype, interactive 10-Hz digital twin telemetry simulator, 3D subsea robot viewer, and open GIS mapping portal."
         }
       ]
     }
@@ -159,127 +144,144 @@ export const InsidePptSection: React.FC = () => {
 
   const activeSlideData = slidesData.find(s => s.slideNum === currentSlide) || slidesData[0];
 
+  const handleJumpToSection = (anchor: string | null) => {
+    if (!anchor) return;
+    const element = document.querySelector(anchor);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="inside-ppt" className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative font-sans scroll-mt-20">
-      
+    <section id="inside-ppt" className="py-12 sm:py-20 px-3 sm:px-6 md:px-8 max-w-7xl mx-auto relative font-sans scroll-mt-20">
+
       {/* Decorative Government Header Strip */}
-      <div className="text-center max-w-4xl mx-auto mb-12">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-extrabold mb-4 shadow-sm">
-          <BookOpen className="w-4 h-4 text-amber-600" />
+      <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300 text-amber-900 text-xs font-extrabold mb-3 sm:mb-4 shadow-sm">
+          <BookOpen className="w-4 h-4 text-amber-600 shrink-0" />
           <span>OFFICIAL SIH 2026 PRESENTATION DECK // TEAM LORENZINI</span>
         </div>
-        <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
-          INSIDE PPT — Detailed Presentation Breakdown
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-3 sm:mb-4">
+          INSIDE PPT — 5 Core Presentation Tabs
         </h2>
-        <p className="text-slate-700 text-base md:text-lg leading-relaxed font-medium">
-          Explore the official 6-slide Smart India Hackathon presentation submitted for <strong className="text-amber-800">Problem Statement 26064</strong> under the Ministry of Earth Sciences (MoES).
+        <p className="text-slate-700 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
+          Explore the official Smart India Hackathon presentation submitted for <strong className="text-amber-800">Problem Statement 26064</strong> under the Ministry of Earth Sciences (MoES).
         </p>
 
         {/* PDF Download & Quick Actions Bar */}
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
           <a
             href="/assets/SIH_TEAM_LORENZINI.pdf"
             download="SIH_TEAM_LORENZINI_VARUNA06_PPT.pdf"
-            className="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-black flex items-center gap-2 transition-all shadow-md active:scale-95"
+            className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-black flex items-center gap-2 transition-all shadow-md active:scale-95"
           >
-            <Download className="w-4 h-4 text-slate-950" />
-            <span>Download Official PPT PDF (6 Slides)</span>
+            <Download className="w-4 h-4 text-slate-950 shrink-0" />
+            <span>Download Official PPT PDF</span>
           </a>
 
           <button
             onClick={() => setViewPdfModal(true)}
-            className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center gap-2 transition-all shadow-md active:scale-95"
+            className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold flex items-center gap-2 transition-all shadow-md active:scale-95"
           >
-            <Eye className="w-4 h-4 text-amber-400" />
+            <Eye className="w-4 h-4 text-amber-400 shrink-0" />
             <span>View Full PDF Document</span>
           </button>
         </div>
       </div>
 
-      {/* Slide Navigation Tabs (Slides 1 - 6) */}
-      <div className="flex items-center justify-between mb-6 bg-white p-2 rounded-2xl border border-slate-200 shadow-md overflow-x-auto gap-2">
+      {/* 5 User Requested Navigation Tabs */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mb-6 bg-white p-2 rounded-2xl border border-slate-200 shadow-md">
         {slidesData.map((slide) => {
           const isActive = currentSlide === slide.slideNum;
           return (
             <button
               key={slide.slideNum}
               onClick={() => setCurrentSlide(slide.slideNum)}
-              className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-extrabold whitespace-nowrap transition-all ${
-                isActive
+              className={`flex items-center justify-center gap-2 px-3 py-2.5 rounded-xl text-xs font-extrabold transition-all text-center ${isActive
                   ? 'bg-amber-500 text-slate-950 shadow-md scale-[1.02]'
                   : 'bg-slate-50 text-slate-700 hover:bg-slate-100 hover:text-slate-900 border border-slate-200'
-              }`}
+                }`}
             >
-              <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] ${
-                isActive ? 'bg-slate-950 text-amber-400 font-black' : 'bg-slate-200 text-slate-800'
-              }`}>
+              <span className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] shrink-0 ${isActive ? 'bg-slate-950 text-amber-400 font-black' : 'bg-slate-200 text-slate-800'
+                }`}>
                 {slide.slideNum}
               </span>
-              <span>Slide 0{slide.slideNum}</span>
+              <span className="truncate">{slide.tabTitle}</span>
             </button>
           );
         })}
       </div>
 
-      {/* Main Interactive Slide Display Card */}
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden mb-12">
-        {/* Top Slide Header Bar */}
-        <div className="bg-[#0b132b] text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4 border-b border-amber-500/30">
-          <div className="flex items-center gap-3">
-            <span className="px-3 py-1 rounded-md bg-amber-500/20 border border-amber-400/40 text-amber-300 font-mono text-xs font-bold uppercase tracking-widest">
+      {/* Main Interactive Tab Content Card */}
+      <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-2xl overflow-hidden mb-8 sm:mb-12">
+        {/* Top Header Bar */}
+        <div className="bg-[#0b132b] text-white px-4 sm:px-6 py-3 sm:py-4 flex flex-wrap items-center justify-between gap-3 border-b border-amber-500/30">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <span className="px-2.5 py-1 rounded-md bg-amber-500/20 border border-amber-400/40 text-amber-300 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest truncate">
               {activeSlideData.tag}
             </span>
-            <span className="text-xs text-slate-400 font-bold hidden sm:inline">
+            <span className="text-xs text-slate-400 font-bold hidden md:inline">
               SIH Idea Submission Template • MoES / NCPOR
             </span>
           </div>
 
-          {/* Slide Prev/Next Controls */}
-          <div className="flex items-center gap-2">
+          {/* Prev/Next Controls */}
+          <div className="flex items-center gap-2 shrink-0">
+            {activeSlideData.jumpAnchor && (
+              <button
+                onClick={() => handleJumpToSection(activeSlideData.jumpAnchor)}
+                className="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-400/40 text-[11px] font-mono font-bold flex items-center gap-1 transition-all mr-1"
+                title="Jump to Interactive Live Portal View"
+              >
+                <span>LIVE DEMO</span>
+                <ExternalLink className="w-3 h-3 text-amber-400" />
+              </button>
+            )}
+
             <button
               disabled={currentSlide === 1}
               onClick={() => setCurrentSlide(prev => Math.max(1, prev - 1))}
               className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-white transition-colors"
-              title="Previous Slide"
+              title="Previous Tab"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
-            <span className="text-xs font-bold text-amber-400 font-mono px-2">
-              {currentSlide} / {slidesData.length}
+            <span className="text-xs font-bold text-amber-400 font-mono px-1 sm:px-2">
+              Tab {currentSlide} / {slidesData.length}
             </span>
 
             <button
               disabled={currentSlide === slidesData.length}
               onClick={() => setCurrentSlide(prev => Math.min(slidesData.length, prev + 1))}
               className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-white transition-colors"
-              title="Next Slide"
+              title="Next Tab"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
         </div>
 
-        {/* Slide Content Body */}
-        <div className="p-6 md:p-10 space-y-8">
-          
+        {/* Tab Content Body */}
+        <div className="p-4 sm:p-6 md:p-10 space-y-6 sm:space-y-8">
+
           {/* Title & Subtitle */}
           <div>
-            <h3 className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">
+            <h3 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight mb-1.5 sm:mb-2">
               {activeSlideData.title}
             </h3>
-            <p className="text-sm md:text-base text-amber-800 font-bold">
+            <p className="text-xs sm:text-sm md:text-base text-amber-800 font-bold">
               {activeSlideData.subtitle}
             </p>
           </div>
 
           {/* Key Bullet Highlights Box */}
-          <div className="p-5 rounded-2xl bg-amber-50/80 border border-amber-200/80 shadow-inner space-y-3">
-            <h4 className="text-xs font-extrabold text-amber-900 uppercase tracking-widest flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-600" />
-              <span>Slide Key Technical Takeaways:</span>
+          <div className="p-4 sm:p-5 rounded-2xl bg-amber-50/80 border border-amber-200/80 shadow-inner space-y-3">
+            <h4 className="text-[11px] sm:text-xs font-extrabold text-amber-900 uppercase tracking-widest flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+              <span>Key Technical Highlights:</span>
             </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs md:text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3 text-xs sm:text-sm">
               {activeSlideData.keyHighlights.map((point, pIdx) => (
                 <div key={pIdx} className="flex items-start gap-2 text-slate-800 font-medium">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
@@ -290,25 +292,25 @@ export const InsidePptSection: React.FC = () => {
           </div>
 
           {/* Deep Narrative Explanation */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 pb-2">
-              <Layers className="w-4 h-4 text-amber-600" />
-              <span>In-Depth Slide Technical Explanation</span>
+          <div className="space-y-3 sm:space-y-4">
+            <h4 className="text-xs sm:text-sm font-extrabold text-slate-900 uppercase tracking-wider flex items-center gap-2 border-b border-slate-200 pb-2">
+              <Layers className="w-4 h-4 text-amber-600 shrink-0" />
+              <span>In-Depth Technical Explanation</span>
             </h4>
-            <p className="text-slate-700 text-sm md:text-base leading-relaxed font-medium">
+            <p className="text-slate-700 text-xs sm:text-sm md:text-base leading-relaxed font-medium">
               {activeSlideData.details}
             </p>
           </div>
 
-          {/* Specific Slide Section Blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+          {/* Specific Section Blocks */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 pt-2">
             {activeSlideData.sections.map((sec, sIdx) => (
-              <div key={sIdx} className="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition-all shadow-xs">
-                <h5 className="text-sm font-extrabold text-slate-900 mb-2 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+              <div key={sIdx} className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-300 transition-all shadow-xs">
+                <h5 className="text-xs sm:text-sm font-extrabold text-slate-900 mb-2 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
                   <span>{sec.heading}</span>
                 </h5>
-                <p className="text-xs md:text-sm text-slate-600 leading-relaxed font-medium">
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                   {sec.content}
                 </p>
               </div>
@@ -317,26 +319,26 @@ export const InsidePptSection: React.FC = () => {
 
         </div>
 
-        {/* Slide Bottom Bar Navigation Footer */}
-        <div className="bg-slate-100 px-6 py-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4 text-xs font-bold text-slate-600">
+        {/* Tab Bottom Bar Navigation Footer */}
+        <div className="bg-slate-100 px-4 sm:px-6 py-3 sm:py-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3 text-xs font-bold text-slate-600">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Smart India Hackathon 2026 • Official Presentation Deck</span>
+            <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span className="truncate">Smart India Hackathon 2026 • Official Presentation Deck</span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
             <button
               onClick={() => setCurrentSlide(prev => prev > 1 ? prev - 1 : slidesData.length)}
               className="text-amber-800 hover:text-amber-900 font-extrabold"
             >
-              ← Previous
+              ← Previous Tab
             </button>
             <span>|</span>
             <button
               onClick={() => setCurrentSlide(prev => prev < slidesData.length ? prev + 1 : 1)}
               className="text-amber-800 hover:text-amber-900 font-extrabold"
             >
-              Next Slide →
+              Next Tab →
             </button>
           </div>
         </div>
@@ -345,16 +347,16 @@ export const InsidePptSection: React.FC = () => {
 
       {/* PDF View Modal */}
       {viewPdfModal && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="relative max-w-5xl w-full h-[90vh] bg-white rounded-3xl overflow-hidden shadow-2xl border border-slate-300 flex flex-col animate-in fade-in zoom-in duration-200">
-            
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+          <div className="relative max-w-5xl w-full h-[90vh] bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-slate-300 flex flex-col animate-in fade-in zoom-in duration-200">
+
             {/* Modal Header */}
-            <div className="p-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-700">
-              <span className="font-extrabold text-sm flex items-center gap-2">
-                <FileText className="w-4 h-4 text-amber-400" />
-                SIH TEAM LORENZINI Presentation Deck (SIH TEAM LORENZINI.pdf)
+            <div className="p-3 sm:p-4 bg-slate-900 text-white flex items-center justify-between border-b border-slate-700 gap-3">
+              <span className="font-extrabold text-xs sm:text-sm flex items-center gap-2 truncate">
+                <FileText className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>SIH TEAM LORENZINI Presentation Deck (SIH TEAM LORENZINI.pdf)</span>
               </span>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 sm:gap-3 shrink-0">
                 <a
                   href="/assets/SIH_TEAM_LORENZINI.pdf"
                   target="_blank"
@@ -362,7 +364,7 @@ export const InsidePptSection: React.FC = () => {
                   className="px-3 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 text-xs font-bold flex items-center gap-1.5"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
-                  <span>Open in New Tab</span>
+                  <span className="hidden sm:inline">Open in New Tab</span>
                 </a>
                 <button
                   onClick={() => setViewPdfModal(false)}

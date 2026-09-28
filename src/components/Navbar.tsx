@@ -8,26 +8,26 @@ interface NavbarProps {
   onOpenDisclaimer?: () => void;
   isHighContrast?: boolean;
   onHighContrastToggle?: () => void;
+  activePage?: number;
+  onPageChange?: (page: number) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   onOpenMission,
   onOpenJudgeMode,
   onOpenReport,
-  onOpenDisclaimer,
+  activePage = 1,
+  onPageChange,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'Inside PPT', href: '#inside-ppt' },
-    { label: 'The Problem', href: '#problem' },
-    { label: 'Specifications', href: '#specifications' },
-    { label: 'How It Works', href: '#mission-intelligence' },
-    { label: 'Sensor Intelligence', href: '#sensor-fusion' },
-    { label: '3D & PCB Platform', href: '#robot-3d' },
-    { label: 'Industry Evolution', href: '#roadmap-feasibility' },
-    { label: 'Team Lorenzini', href: '#team' },
+    { label: '1. Problem Statement', href: '#page-1', page: 1 },
+    { label: '2. Solution', href: '#page-2', page: 2 },
+    { label: '3. Our Test & Research', href: '#page-3', page: 3 },
+    { label: '4. Business Model', href: '#page-4', page: 4 },
+    { label: '5. Team & Mentors', href: '#page-5', page: 5 },
+    { label: 'Full View (All)', href: '#full-view', page: 0 },
   ];
 
   return (
@@ -81,15 +81,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
             <span>Software Design</span>
-          </a>
-
-          {/* Inside PPT Deck Quick Link */}
-          <a
-            href="#inside-ppt"
-            className="px-3.5 py-1.5 rounded-xl bg-amber-100 hover:bg-amber-200 border border-amber-300 text-amber-950 text-xs font-black flex items-center gap-1.5 transition-all shadow-xs"
-          >
-            <FileText className="w-3.5 h-3.5 text-amber-700" />
-            <span>INSIDE PPT</span>
           </a>
 
           {/* Official Gazette Report Button */}
@@ -147,8 +138,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             <a
               key={idx}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-xs font-bold text-slate-800 hover:text-amber-600 border-b border-slate-100 uppercase"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onPageChange?.(link.page);
+              }}
+              className={`block py-2 text-xs font-bold border-b border-slate-100 uppercase transition-all ${
+                activePage === link.page ? 'text-amber-600 font-extrabold' : 'text-slate-800 hover:text-amber-600'
+              }`}
             >
               {link.label}
             </a>

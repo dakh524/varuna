@@ -312,23 +312,43 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenMission, onOpenJ
               </span>
             </div>
 
-            <p className="text-sm text-slate-700 leading-relaxed font-medium mb-6">
-              Design and develop a low-cost deployable ocean-bottom sensor that can be released from a research vessel during surveys to detect and map metal-rich seabed deposits, including polymetallic nodules, hydrothermal sulphides, cobalt-rich crusts and rare-earth-element-bearing sediments, providing a rapid and cost-effective tool for deep-ocean mineral exploration.
-            </p>
+            {/* 💡 SENSOR PAYLOAD PLATFORM + ROV CLARIFICATION BANNER 💡 */}
+            <div className="p-4 rounded-2xl bg-slate-950/80 backdrop-blur-md border border-amber-400/50 shadow-xl space-y-2 mb-4">
+              <div className="flex items-center gap-2 text-xs font-black text-amber-300 uppercase tracking-wider">
+                <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
+                <span>SYSTEM ARCHITECTURE IDENTITY & DEPLOYMENT FLEXIBILITY</span>
+              </div>
+              <p className="text-xs text-slate-200 font-medium leading-relaxed">
+                <strong className="text-amber-300 font-bold">VARUNA06 is a Low-Cost Ocean-Bottom Sensor Payload Platform</strong> designed to be mounted onto any research ROV, AUV, or towed survey sled. To demonstrate autonomous deployment and 4-point rescan mobility, <strong className="text-white font-bold">Team Lorenzini custom-fabricated a 25m depth-rated prototype ROV platform</strong>.
+              </p>
+            </div>
 
-            {/* 4 Feature Badges */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs">
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center font-bold text-slate-800">
-                Polymetallic Nodules
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center font-bold text-slate-800">
-                Hydrothermal Sulphides
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center font-bold text-slate-800">
-                Cobalt-Rich Crusts
-              </div>
-              <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center font-bold text-slate-800">
-                REE Sediments
+            {/* 4 Target Mineral Deposit Types & Ocean Locations Grid */}
+            <div className="space-y-2">
+              <span className="text-[11px] font-extrabold text-slate-900 uppercase tracking-widest block">
+                TARGET MINERAL DEPOSIT TYPES & OCEAN DETECTING LOCATIONS
+              </span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                <div className="p-3 rounded-xl bg-amber-50/90 border border-amber-300 font-medium">
+                  <span className="font-extrabold text-amber-950 block">1. Polymetallic Nodules (PMN)</span>
+                  <span className="text-[11px] text-slate-700 block font-sans"><strong>Location:</strong> Central Indian Ocean Basin (CIOB) & CCZ</span>
+                  <span className="text-[10px] text-amber-800 font-bold block">Depth: 4,000m – 6,000m • Cu, Ni, Co, Mn</span>
+                </div>
+                <div className="p-3 rounded-xl bg-blue-50/90 border border-blue-300 font-medium">
+                  <span className="font-extrabold text-blue-950 block">2. Hydrothermal Sulphides (SMS)</span>
+                  <span className="text-[11px] text-slate-700 block font-sans"><strong>Location:</strong> Central & SW Indian Ridge Vents</span>
+                  <span className="text-[10px] text-blue-800 font-bold block">Depth: 1,500m – 3,500m • Au, Ag, Cu, Zn</span>
+                </div>
+                <div className="p-3 rounded-xl bg-purple-50/90 border border-purple-300 font-medium">
+                  <span className="font-extrabold text-purple-950 block">3. Cobalt-Rich Crusts</span>
+                  <span className="text-[11px] text-slate-700 block font-sans"><strong>Location:</strong> Afanasy Nikitin Seamount (Indian Ocean)</span>
+                  <span className="text-[10px] text-purple-800 font-bold block">Depth: 800m – 2,500m • Co, Pt, Te, REEs</span>
+                </div>
+                <div className="p-3 rounded-xl bg-emerald-50/90 border border-emerald-300 font-medium">
+                  <span className="font-extrabold text-emerald-950 block">4. REE-Rich Sediments</span>
+                  <span className="text-[11px] text-slate-700 block font-sans"><strong>Location:</strong> Pelagic Clays, Deep Ocean Basins</span>
+                  <span className="text-[10px] text-emerald-800 font-bold block">Depth: 3,500m – 6,000m • Y, Dy, Nd, Eu</span>
+                </div>
               </div>
             </div>
           </div>

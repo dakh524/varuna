@@ -66,27 +66,27 @@ export const JudgeModeModal: React.FC<JudgeModeModalProps> = ({ isOpen, onClose,
   const current = auditSlides[currentStep];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
-      <div className="w-full max-w-3xl bg-[#06142a] border border-amber-400/50 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200">
+      <div className="w-full max-w-3xl max-h-[92vh] sm:max-h-[88vh] bg-[#06142a] border border-amber-400/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl relative flex flex-col overflow-hidden">
         {/* Glow Accent */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
 
         {/* Modal Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-cyan-500/20 mb-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-950 border border-amber-400 flex items-center justify-center text-amber-300">
-              <Award className="w-5 h-5 text-amber-400" />
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-cyan-500/20 mb-4 sm:mb-6 shrink-0 gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-amber-950 border border-amber-400 flex items-center justify-center text-amber-300 shrink-0">
+              <Award className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
             </div>
-            <div>
+            <div className="min-w-0">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-mono text-amber-400 font-bold uppercase tracking-widest">
+                <span className="text-[9px] sm:text-[10px] font-mono text-amber-400 font-bold uppercase tracking-wider sm:tracking-widest block truncate">
                   OFFICIAL AUDIT MODE (60-SECOND EXECUTIVE BRIEFING)
                 </span>
-                <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold">
+                <span className="hidden sm:inline-block text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-bold shrink-0">
                   REGISTRY SE-2026-V6
                 </span>
               </div>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
+              <h2 className="text-base sm:text-xl md:text-2xl font-bold text-white truncate">
                 VARUNA06 Official Executive Presentation
               </h2>
             </div>
@@ -94,71 +94,74 @@ export const JudgeModeModal: React.FC<JudgeModeModalProps> = ({ isOpen, onClose,
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 text-slate-400 hover:text-white transition-all"
+            className="p-1.5 sm:p-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 text-slate-400 hover:text-white transition-all shrink-0"
             title="Exit Audit Mode"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
 
-        {/* 6-Step Visual Progress Indicator */}
-        <div className="grid grid-cols-6 gap-2 mb-6">
-          {auditSlides.map((s, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentStep(idx)}
-              className={`p-2 rounded-xl text-center border transition-all ${
-                idx === currentStep
-                  ? 'bg-amber-500/25 border-amber-400 text-white shadow-md'
-                  : idx < currentStep
-                  ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300'
-                  : 'bg-slate-900 border-slate-800 text-slate-500'
-              }`}
-            >
-              <span className="text-[10px] font-mono font-bold block">{s.step}</span>
-              <span className="text-[9px] font-mono truncate block uppercase">{s.category.split(' ')[0]}</span>
-            </button>
-          ))}
-        </div>
+        {/* Scrollable Body */}
+        <div className="overflow-y-auto flex-1 pr-1 space-y-4 sm:space-y-6">
+          {/* 6-Step Visual Progress Indicator */}
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 sm:gap-2">
+            {auditSlides.map((s, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentStep(idx)}
+                className={`p-1.5 sm:p-2 rounded-xl text-center border transition-all ${
+                  idx === currentStep
+                    ? 'bg-amber-500/25 border-amber-400 text-white shadow-md'
+                    : idx < currentStep
+                    ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300'
+                    : 'bg-slate-900 border-slate-800 text-slate-500'
+                }`}
+              >
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold block">{s.step}</span>
+                <span className="text-[8px] sm:text-[9px] font-mono truncate block uppercase">{s.category.split(' ')[0]}</span>
+              </button>
+            ))}
+          </div>
 
-        {/* Slide Content Box */}
-        <div className="p-6 rounded-2xl bg-[#081a36] border border-amber-500/30 mb-6">
-          <span className="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest block mb-1">
-            {current.category}
-          </span>
-          <h3 className="text-2xl font-extrabold text-white mb-2">{current.title}</h3>
-          <p className="text-sm font-mono text-cyan-300/90 mb-4">{current.subtitle}</p>
-          <p className="text-sm text-slate-200 leading-relaxed font-sans mb-6">
-            {current.content}
-          </p>
-
-          <div className="p-3.5 rounded-xl bg-amber-950/60 border border-amber-400/40 flex items-center gap-2.5">
-            <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-            <span className="text-xs font-mono font-bold text-amber-200">
-              {current.takeaway}
+          {/* Slide Content Box */}
+          <div className="p-4 sm:p-6 rounded-2xl bg-[#081a36] border border-amber-500/30">
+            <span className="text-[10px] sm:text-xs font-mono font-bold text-amber-400 uppercase tracking-widest block mb-1">
+              {current.category}
             </span>
+            <h3 className="text-lg sm:text-2xl font-extrabold text-white mb-1.5 sm:mb-2">{current.title}</h3>
+            <p className="text-xs sm:text-sm font-mono text-cyan-300/90 mb-3 sm:mb-4">{current.subtitle}</p>
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans mb-4 sm:mb-6">
+              {current.content}
+            </p>
+
+            <div className="p-3 sm:p-3.5 rounded-xl bg-amber-950/60 border border-amber-400/40 flex items-center gap-2.5">
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400 shrink-0" />
+              <span className="text-xs font-mono font-bold text-amber-200 leading-tight">
+                {current.takeaway}
+              </span>
+            </div>
           </div>
         </div>
 
         {/* Footer Actions */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-cyan-500/15">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 sm:pt-4 border-t border-cyan-500/15 shrink-0">
           <div className="flex items-center gap-2">
             <button
               onClick={() => {
                 onClose();
                 onOpenSimulation();
               }}
-              className="px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-white text-xs font-mono transition-all"
+              className="w-full sm:w-auto px-3.5 py-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-300 hover:text-white text-[11px] sm:text-xs font-mono transition-all text-center"
             >
               JUMP TO LIVE TELEMETRY SIMULATOR
             </button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 justify-between sm:justify-end">
             <button
               onClick={() => setCurrentStep(Math.max(0, currentStep - 1))}
               disabled={currentStep === 0}
-              className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono disabled:opacity-40"
+              className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono disabled:opacity-40 flex-1 sm:flex-none"
             >
               PREVIOUS
             </button>
@@ -171,7 +174,7 @@ export const JudgeModeModal: React.FC<JudgeModeModalProps> = ({ isOpen, onClose,
                   onClose();
                 }
               }}
-              className="px-4 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs font-mono flex items-center gap-1.5 hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20"
+              className="px-4 py-2 rounded-xl bg-amber-500 text-black font-bold text-xs font-mono flex items-center justify-center gap-1.5 hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20 flex-1 sm:flex-none"
             >
               <span>{currentStep === auditSlides.length - 1 ? 'FINISH AUDIT' : 'NEXT: ' + auditSlides[currentStep + 1].category.split(' ')[0]}</span>
               <ArrowRight className="w-3.5 h-3.5" />

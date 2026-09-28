@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Play, RotateCcw, CheckCircle, ArrowRight, ShieldCheck, Activity, Radio, Waves, Anchor, Compass } from 'lucide-react';
 
 interface FullMissionDemoModalProps {
@@ -105,22 +105,22 @@ export const FullMissionDemoModal: React.FC<FullMissionDemoModalProps> = ({ isOp
   const current = missionSequence[currentStep];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-xl animate-in fade-in duration-200">
-      <div className="w-full max-w-4xl bg-[#06142a] border border-cyan-500/40 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/80 backdrop-blur-xl animate-in fade-in duration-200">
+      <div className="w-full max-w-4xl max-h-[92vh] sm:max-h-[88vh] bg-[#06142a] border border-cyan-500/40 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-2xl relative flex flex-col overflow-hidden">
         {/* Glow Accent */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
         {/* Modal Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-cyan-500/20 mb-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-cyan-950 border border-cyan-400 flex items-center justify-center text-cyan-300">
-              <Compass className="w-5 h-5 animate-spin" />
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-cyan-500/20 mb-4 sm:mb-6 shrink-0 gap-3">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-cyan-950 border border-cyan-400 flex items-center justify-center text-cyan-300 shrink-0">
+              <Compass className="w-4 h-4 sm:w-5 sm:h-5 animate-spin" />
             </div>
-            <div>
-              <span className="text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-widest block">
+            <div className="min-w-0">
+              <span className="text-[9px] sm:text-[10px] font-mono text-cyan-400 font-bold uppercase tracking-wider sm:tracking-widest block truncate">
                 FULL CLOSED-LOOP MISSION DEMONSTRATION
               </span>
-              <h2 className="text-xl md:text-2xl font-bold text-white">
+              <h2 className="text-base sm:text-xl md:text-2xl font-bold text-white truncate">
                 Automated Subsea Exploration Sequence
               </h2>
             </div>
@@ -128,80 +128,83 @@ export const FullMissionDemoModal: React.FC<FullMissionDemoModalProps> = ({ isOp
 
           <button
             onClick={onClose}
-            className="p-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-400 hover:text-white transition-all"
+            className="p-1.5 sm:p-2 rounded-xl bg-slate-900 border border-slate-700 hover:border-cyan-400 text-slate-400 hover:text-white transition-all shrink-0"
             title="Close Demonstration"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
 
-        {/* Horizontal Progress Bar */}
-        <div className="mb-6">
-          <div className="flex items-center justify-between text-xs font-mono text-slate-400 mb-2">
-            <span>STEP {currentStep + 1} OF {missionSequence.length}: {current.stage}</span>
-            <span>{Math.round(((currentStep + 1) / missionSequence.length) * 100)}% COMPLETE</span>
-          </div>
-          <div className="w-full h-2 rounded-full bg-slate-900 overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 transition-all duration-500 rounded-full"
-              style={{ width: `${((currentStep + 1) / missionSequence.length) * 100}%` }}
-            />
-          </div>
-        </div>
-
-        {/* Step Content Card */}
-        <div className="p-6 rounded-2xl bg-[#081a36] border border-cyan-500/30 mb-6">
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-            <span className={`text-xs font-mono font-bold tracking-wider uppercase ${current.statusColor}`}>
-              {current.stage}
-            </span>
-            <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">
-              {current.telemetry}
-            </span>
+        {/* Scrollable Body */}
+        <div className="overflow-y-auto flex-1 pr-1 space-y-4 sm:space-y-6">
+          {/* Horizontal Progress Bar */}
+          <div>
+            <div className="flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400 mb-2 gap-2">
+              <span className="truncate">STEP {currentStep + 1} OF {missionSequence.length}: {current.stage}</span>
+              <span className="shrink-0">{Math.round(((currentStep + 1) / missionSequence.length) * 100)}% COMPLETE</span>
+            </div>
+            <div className="w-full h-2 rounded-full bg-slate-900 overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-cyan-500 via-teal-400 to-emerald-400 transition-all duration-500 rounded-full"
+                style={{ width: `${((currentStep + 1) / missionSequence.length) * 100}%` }}
+              />
+            </div>
           </div>
 
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
-            {current.title}
-          </h3>
+          {/* Step Content Card */}
+          <div className="p-4 sm:p-6 rounded-2xl bg-[#081a36] border border-cyan-500/30">
+            <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span className={`text-xs font-mono font-bold tracking-wider uppercase ${current.statusColor}`}>
+                {current.stage}
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 break-all">
+                {current.telemetry}
+              </span>
+            </div>
 
-          <p className="text-sm text-slate-200 leading-relaxed font-sans mb-4">
-            {current.detail}
-          </p>
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3">
+              {current.title}
+            </h3>
 
-          <div className="p-3 rounded-xl bg-[#050e1f] border border-cyan-900/40 text-xs font-mono text-cyan-300 flex items-center justify-between">
-            <span>Subsea Telemetry: All sensors online & synchronized</span>
-            <span className="text-emerald-400 font-bold">● OK</span>
+            <p className="text-xs sm:text-sm text-slate-200 leading-relaxed font-sans mb-4">
+              {current.detail}
+            </p>
+
+            <div className="p-3 rounded-xl bg-[#050e1f] border border-cyan-900/40 text-xs font-mono text-cyan-300 flex items-center justify-between gap-2">
+              <span className="truncate">Subsea Telemetry: All sensors online & synchronized</span>
+              <span className="text-emerald-400 font-bold shrink-0">● OK</span>
+            </div>
           </div>
-        </div>
 
-        {/* Step Selector Buttons (1 to 10) */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-4 mb-6 scrollbar-none">
-          {missionSequence.map((step, idx) => (
-            <button
-              key={idx}
-              onClick={() => {
-                setCurrentStep(idx);
-                setIsPlaying(false);
-              }}
-              className={`flex-1 min-w-[70px] py-1.5 px-2 rounded-lg text-[10px] font-mono font-bold border transition-all ${
-                idx === currentStep
-                  ? 'bg-cyan-500/30 border-cyan-400 text-white shadow-md'
-                  : idx < currentStep
-                  ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300'
-                  : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700'
-              }`}
-            >
-              0{idx + 1}
-            </button>
-          ))}
+          {/* Step Selector Buttons (1 to 10) */}
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
+            {missionSequence.map((step, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  setCurrentStep(idx);
+                  setIsPlaying(false);
+                }}
+                className={`flex-1 min-w-[50px] sm:min-w-[70px] py-1.5 px-2 rounded-lg text-[10px] font-mono font-bold border transition-all ${
+                  idx === currentStep
+                    ? 'bg-cyan-500/30 border-cyan-400 text-white shadow-md'
+                    : idx < currentStep
+                    ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300'
+                    : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700'
+                }`}
+              >
+                0{idx + 1}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Footer Controls */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-cyan-500/15">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-3 sm:pt-4 border-t border-cyan-500/15 shrink-0">
+          <div className="flex items-center gap-2 justify-between sm:justify-start">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="px-4 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400 text-cyan-200 text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-cyan-500/30 transition-all"
+              className="px-3 sm:px-4 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400 text-cyan-200 text-xs font-mono font-bold flex items-center gap-1.5 hover:bg-cyan-500/30 transition-all flex-1 sm:flex-none justify-center"
             >
               {isPlaying ? 'PAUSE AUTO-PLAY' : 'RESUME AUTO-PLAY'}
             </button>
@@ -210,21 +213,21 @@ export const FullMissionDemoModal: React.FC<FullMissionDemoModalProps> = ({ isOp
                 setCurrentStep(0);
                 setIsPlaying(true);
               }}
-              className="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono flex items-center gap-1.5 hover:text-white transition-all"
+              className="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono flex items-center gap-1.5 hover:text-white transition-all justify-center"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>RESTART</span>
             </button>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 justify-between sm:justify-end">
             <button
               onClick={() => {
                 setCurrentStep(Math.max(0, currentStep - 1));
                 setIsPlaying(false);
               }}
               disabled={currentStep === 0}
-              className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono disabled:opacity-40"
+              className="px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 text-xs font-mono disabled:opacity-40 flex-1 sm:flex-none"
             >
               PREVIOUS
             </button>
@@ -237,9 +240,9 @@ export const FullMissionDemoModal: React.FC<FullMissionDemoModalProps> = ({ isOp
                   onClose();
                 }
               }}
-              className="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-xs font-mono flex items-center gap-1.5 hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20"
+              className="px-4 py-2 rounded-xl bg-cyan-500 text-black font-bold text-xs font-mono flex items-center justify-center gap-1.5 hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20 flex-1 sm:flex-none"
             >
-              <span>{currentStep === missionSequence.length - 1 ? 'COMPLETE MISSION' : 'NEXT STEP'}</span>
+              <span>{currentStep === missionSequence.length - 1 ? 'COMPLETE' : 'NEXT'}</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

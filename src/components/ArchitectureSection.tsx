@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Layers, Cpu, Server, Cable, Activity, Database, GitCommit, CheckCircle } from 'lucide-react';
+import { Layers, Cpu, Server, Cable, Activity, Database, GitCommit, CheckCircle, Download, FileText, ExternalLink, Maximize2, X, Sparkles, ShieldCheck } from 'lucide-react';
 
 export const ArchitectureSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'system' | 'hardware' | 'software'>('system');
+  const [activeTab, setActiveTab] = useState<'solution' | 'system' | 'hardware' | 'software'>('solution');
+  const [isDiagramModalOpen, setIsDiagramModalOpen] = useState<boolean>(false);
 
   const hardwareModules = [
     { name: 'Core MCU Engine', item: 'STM32H7 / ESP32-S3 Dual-Core', role: 'Real-time 24-bit ADC sampling, digital filtering, Kalman attitude fusion.' },
@@ -27,53 +28,223 @@ export const ArchitectureSection: React.FC = () => {
   ];
 
   return (
-    <section id="architecture" className="py-20 px-4 md:px-8 max-w-7xl mx-auto relative">
-      <div className="text-center max-w-3xl mx-auto mb-12">
+    <section id="architecture" className="py-12 sm:py-20 px-3 sm:px-6 md:px-8 max-w-7xl mx-auto relative font-sans">
+      <div className="text-center max-w-3xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-900 text-xs font-mono mb-4 font-bold shadow-sm">
-          <Layers className="w-3.5 h-3.5 text-blue-600" />
-          <span>SECTION 07 // SYSTEM & DATA PIPELINE ARCHITECTURE</span>
+          <Layers className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+          <span>PROPOSALS & SYSTEM ARCHITECTURE</span>
         </div>
-        <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
-          End-to-End Engineering Architecture
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+          Proposed Solution & End-to-End Architecture
         </h2>
-        <p className="text-slate-700 text-base md:text-lg leading-relaxed font-medium">
-          From surface winch power delivery down to microvolt differential sensing and topside prospectivity mapping, every hardware module and software layer is purpose-built for low-cost marine geophysics.
+        <p className="text-slate-700 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
+          Official VARUNA06 Proposal System Architecture, Subsea Hardware Subsystems, and Official Documentation Files.
         </p>
 
         {/* Tab Selector */}
-        <div className="flex justify-center gap-2 mt-6">
+        <div className="flex flex-wrap justify-center gap-2 mt-6">
+          <button
+            onClick={() => setActiveTab('solution')}
+            className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border flex items-center gap-1.5 ${activeTab === 'solution'
+                ? 'bg-amber-500 border-amber-600 text-slate-950 shadow-md font-black scale-105'
+                : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
+              }`}
+          >
+            <Sparkles className="w-3.5 h-3.5 text-amber-900" />
+            <span>PROPOSED SOLUTION DIAGRAM</span>
+          </button>
           <button
             onClick={() => setActiveTab('system')}
-            className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
-              activeTab === 'system'
+            className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activeTab === 'system'
                 ? 'bg-blue-600 border-blue-700 text-white shadow-md'
                 : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
-            }`}
+              }`}
           >
             SYSTEM PIPELINE
           </button>
           <button
             onClick={() => setActiveTab('hardware')}
-            className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
-              activeTab === 'hardware'
+            className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activeTab === 'hardware'
                 ? 'bg-blue-600 border-blue-700 text-white shadow-md'
                 : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
-            }`}
+              }`}
           >
             HARDWARE SUBSYSTEMS
           </button>
           <button
             onClick={() => setActiveTab('software')}
-            className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${
-              activeTab === 'software'
+            className={`px-4 py-2 rounded-xl text-xs font-mono font-bold transition-all border ${activeTab === 'software'
                 ? 'bg-blue-600 border-blue-700 text-white shadow-md'
                 : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-50'
-            }`}
+              }`}
           >
             SOFTWARE PROCESSING STACK
           </button>
         </div>
       </div>
+
+      {/* Tab 0: Large Proposed Solution Diagram Showcase & Proposals */}
+      {activeTab === 'solution' && (
+        <div className="space-y-8 animate-in fade-in duration-300">
+
+          {/* Official Proposal Documents Quick Bar */}
+          <div className="p-4 sm:p-6 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-400 shrink-0">
+                <FileText className="w-5 h-5 text-amber-400" />
+              </div>
+              <div>
+                <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest block">
+                  OFFICIAL PROPOSAL DOCUMENTS
+                </span>
+                <h3 className="text-base sm:text-lg font-bold text-white">
+                  VARUNA06 Technical Proposal & Specifications
+                </h3>
+              </div>
+            </div>
+
+            {/* Document Download Buttons */}
+            <div className="flex flex-wrap items-center gap-2 w-full md:w-auto justify-stretch md:justify-end">
+              <a
+                href="/assets/Proposal_Varuna06_Draft.pdf"
+                download="Proposal_Varuna06_Draft.pdf"
+                className="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-black text-xs font-mono flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 flex-1 md:flex-none"
+              >
+                <Download className="w-4 h-4 text-slate-950" />
+                <span>Proposal PDF (Draft)</span>
+              </a>
+
+              <a
+                href="/assets/Proposal_Varuna06.docx"
+                download="Proposal_Varuna06.docx"
+                className="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs font-mono flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 flex-1 md:flex-none"
+              >
+                <Download className="w-4 h-4 text-white" />
+                <span>Proposal Word (.DOCX)</span>
+              </a>
+
+              <a
+                href="/assets/Proposal_Varuna06_Draft.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs font-mono flex items-center justify-center gap-1.5 transition-all"
+              >
+                <ExternalLink className="w-3.5 h-3.5 text-amber-400" />
+                <span>Open PDF</span>
+              </a>
+            </div>
+          </div>
+
+          {/* High-Resolution Large Proposed Solution System Diagram Card */}
+          <div className="bg-slate-950 rounded-3xl border-2 border-amber-400/50 p-4 sm:p-6 md:p-8 shadow-2xl overflow-hidden relative">
+
+            {/* Header Strip */}
+            <div className="flex flex-wrap items-center justify-between border-b border-slate-800 pb-4 mb-4 sm:mb-6 gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-amber-500 text-black flex items-center justify-center font-black shadow-md shrink-0">
+                  <ShieldCheck className="w-5 h-5 text-slate-950" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest block">
+                    VARUNA06 PROPOSED SOLUTION DIAGRAM
+                  </span>
+                  <h3 className="text-base sm:text-xl font-extrabold text-white tracking-tight">
+                    Official End-to-End Subsea Exploration System Architecture
+                  </h3>
+                </div>
+              </div>
+
+              <button
+                onClick={() => setIsDiagramModalOpen(true)}
+                className="px-3.5 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-400/40 text-xs font-mono font-bold flex items-center gap-2 transition-all"
+                title="Expand Full Resolution Diagram"
+              >
+                <Maximize2 className="w-4 h-4 text-amber-400" />
+                <span>EXPAND FULL DIAGRAM</span>
+              </button>
+            </div>
+
+            {/* Large Full-Width Responsive Diagram Image Display */}
+            <div className="relative group rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/90 flex items-center justify-center p-2 sm:p-4">
+              <img
+                src="/assets/VARUNA06_PROPOSED_SOLUTION_DIAGRAM.jpeg"
+                alt="VARUNA06 Proposed Solution System Architecture Diagram"
+                className="w-full h-auto max-h-[600px] sm:max-h-[750px] object-contain rounded-xl shadow-2xl transition-all duration-300 group-hover:scale-[1.01]"
+              />
+
+              <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+                <span className="px-4 py-2 rounded-xl bg-amber-500 text-black font-mono font-black text-xs uppercase tracking-widest shadow-xl border border-amber-300">
+                  Click to Expand Full Resolution View
+                </span>
+              </div>
+
+              <button
+                onClick={() => setIsDiagramModalOpen(true)}
+                className="absolute inset-0 w-full h-full cursor-zoom-in"
+                aria-label="Zoom Diagram Image"
+              />
+            </div>
+
+            {/* Diagram Explanatory Metadata Footer */}
+            <div className="mt-4 sm:mt-6 pt-4 border-t border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono">
+              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300">
+                <span className="text-amber-400 font-bold block mb-1">01. SENSOR INPUT & DAQ</span>
+                <p className="text-slate-400 text-[11px] font-sans">
+                  Dual EM Coils, 3-Axis RM3100 Magnetometer, Ag/AgCl SP Electrodes, and 500kHz Altimeter.
+                </p>
+              </div>
+
+              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300">
+                <span className="text-amber-400 font-bold block mb-1">02. EDGE & RESCAN LOGIC</span>
+                <p className="text-slate-400 text-[11px] font-sans">
+                  Attitude Kalman Filter, 1/r³ Standoff Normalization, and Autonomous 4-Point Offset Verification.
+                </p>
+              </div>
+
+              <div className="p-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-300">
+                <span className="text-amber-400 font-bold block mb-1">03. GIS & TELEMETRY</span>
+                <p className="text-slate-400 text-[11px] font-sans">
+                  10-Hz Surface Telemetry Stream, 0-100 Prospectivity Index, and Hydrographic GIS Mapping.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Full Screen Diagram Zoom Modal */}
+          {isDiagramModalOpen && (
+            <div className="fixed inset-0 z-[120] bg-slate-950/90 backdrop-blur-xl flex items-center justify-center p-2 sm:p-4">
+              <div className="relative max-w-7xl w-full max-h-[95vh] bg-slate-900 border-2 border-amber-400 rounded-3xl p-4 sm:p-6 shadow-2xl flex flex-col overflow-hidden">
+
+                <div className="flex items-center justify-between pb-3 border-b border-slate-800 shrink-0">
+                  <div className="flex items-center gap-2">
+                    <Sparkles className="w-5 h-5 text-amber-400" />
+                    <span className="text-sm font-mono font-bold text-white uppercase tracking-wider">
+                      VARUNA06 Proposed Solution System Architecture (Full Resolution)
+                    </span>
+                  </div>
+                  <button
+                    onClick={() => setIsDiagramModalOpen(false)}
+                    className="p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition-all"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+
+                <div className="flex-1 overflow-auto p-2 sm:p-4 flex items-center justify-center bg-slate-950 rounded-2xl mt-3">
+                  <img
+                    src="/assets/VARUNA06_PROPOSED_SOLUTION_DIAGRAM.jpeg"
+                    alt="VARUNA06 Proposed Solution System Architecture Diagram Full"
+                    className="max-w-full h-auto object-contain rounded-xl shadow-2xl"
+                  />
+                </div>
+
+              </div>
+            </div>
+          )}
+
+        </div>
+      )}
 
       {/* Tab 1: System Pipeline Flowchart */}
       {activeTab === 'system' && (
@@ -209,7 +380,7 @@ export const ArchitectureSection: React.FC = () => {
 
             {/* Down Stem */}
             <div className="w-0.5 h-6 bg-slate-700"></div>
-            
+
             {/* Horizontal Split Line */}
             <div className="w-64 sm:w-80 md:w-96 h-0.5 bg-slate-700 relative">
               <div className="absolute left-0 top-0 w-0.5 h-6 bg-slate-700"></div>
@@ -218,7 +389,7 @@ export const ArchitectureSection: React.FC = () => {
 
             {/* Two Columns: Pressure Housing vs Sensor Cartridge */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-12 w-full pt-6">
-              
+
               {/* Left Column: Pressure Housing */}
               <div className="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col items-center text-center space-y-3 shadow-lg hover:border-blue-500 transition-all">
                 <div className="px-3 py-1 rounded-lg bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold font-mono uppercase tracking-wider">
